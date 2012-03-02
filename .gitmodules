@@ -1,0 +1,12 @@
+[submodule ".vim/bundle/molokai"]
+	path = .vim/bundle/molokai
+	url = https://github.com/vim-scripts/molokai.git
+[submodule ".vim/bundle/puppet-vim"]
+	path = .vim/bundle/puppet-vim
+	url = https://github.com/ajf/puppet-vim.git
+[submodule ".vim/bundle/vim-git"]
+	path = .vim/bundle/vim-git
+	url = https://github.com/tpope/vim-git.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
