@@ -247,6 +247,8 @@ test -r ~/.svn_completion.bash &&
 # use vi editing in bash
 set -o vi
 
+export GPG_DEFAULT_KEY="niklas@protocol7.com"
+
 # source ~/.shenv now if it exists
 test -r ~/.shenv &&
 . ~/.shenv
