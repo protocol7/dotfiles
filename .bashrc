@@ -199,7 +199,7 @@ test -n "$LS_COMMON" &&
 alias ls="command ls $LS_COMMON"
 
 # these use the ls aliases above
-alias ll="ls -l"
+alias ll="ls -la"
 alias l.="ls -d .*"
 
 # -------------------------------------------------------------------
