@@ -52,8 +52,8 @@ set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*.swp,*~,._*
 
 "" Backup and swap files
-set backupdir=~/.vim/.backup//    " where to put backup files.
-set directory=~/.vim/.tmp//      " where to put swap files.
+set backupdir=~/.vim/backup/    " where to put backup files.
+set directory=~/.vim/tmp/      " where to put swap files.
 
 
 
