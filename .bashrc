@@ -51,7 +51,9 @@ PATH="/usr/local/bin:$PATH"
 
 # put ~/bin on PATH if you have it
 test -d "$HOME/bin" &&
-PATH="$HOME/bin:$PATH"
+  PATH="$HOME/bin:$PATH"
+
+export PATH
 
 # ----------------------------------------------------------------------
 # ENVIRONMENT CONFIGURATION
