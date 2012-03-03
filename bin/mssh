@@ -1,0 +1,12 @@
+#!/bin/sh
+
+command=$1
+shift
+hosts=$@
+
+for host in $hosts; 
+do
+  echo "ssh $host $command"
+  ssh $host $command 
+done
+

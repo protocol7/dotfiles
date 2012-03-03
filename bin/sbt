@@ -1,0 +1,2 @@
+java -Xmx512M -XX:MaxPermSize=256m -Dsbt.boot.credentials=/Users/niklas/.ivy2/.credentials -Djava.library.path=/usr/local/lib -jar `dirname $0`/sbt-launch.jar "$@"
+

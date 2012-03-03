@@ -1,0 +1,18 @@
+#!/bin/sh
+
+FILE=$1
+
+echo -n "Hashing: $FILE ... "
+
+if [ ! -f $FILE.md5 ]; then
+       md5sum "$FILE" | cut "-d " -f1 > "$FILE.md5"
+else
+       echo "Skipping $FILE.md5"
+fi
+
+if [ ! -f $FILE.sha1 ]; then
+        sha1sum "$FILE" | cut "-d " -f1 > "$FILE.sha1"
+else
+        echo "Skipping $FILE.sha1"
+fi
+

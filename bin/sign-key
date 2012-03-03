@@ -1,0 +1,5 @@
+#!/bin/sh
+
+gpg --keyserver keyserver.ubuntu.com --recv-key $1
+gpg --sign-key $1
+gpg --keyserver keyserver.ubuntu.com --send-key $1

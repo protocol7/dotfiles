@@ -1,0 +1,14 @@
+#!/bin/sh
+
+source=$1
+target=$2
+shift
+shift
+hosts=$@
+
+for host in $hosts; 
+do
+  echo "scp $source $host:$target"
+  scp $source $host:$target
+done
+

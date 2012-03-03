@@ -1,0 +1,34 @@
+#!/bin/sh
+
+echo -n "PGP Key Password: "
+stty -echo
+read PASSWORD
+stty echo
+echo ""
+
+for FILE in $(find . -not '(' -name "*.md5" -or -name "*.sha1" -or -name "*.asc" ')' -and -type f) ; do
+        echo "Signing: $FILE ... "
+
+        if [ ! -f $FILE.md5 ]; then
+               md5sum "$FILE" | cut "-d " -f1 > "$FILE.md5"
+        else
+               echo "Skipping $FILE.md5"
+        fi
+
+        if [ ! -f $FILE.sha1 ]; then
+                sha1sum "$FILE" | cut "-d " -f1 > "$FILE.sha1"
+        else
+                echo "Skipping $FILE.sha1"
+        fi
+
+        if [ ! -f $FILE.asc ]; then
+                echo "$PASSWORD" | gpg --default-key "$GPG_DEFAULT_KEY" --detach-sign --armor --no-tty --yes --passphrase-fd 0 "$FILE" && echo done.
+        else
+                echo "Skipping $FILE.asc"
+        fi
+done
+
+echo Updating permission...
+chmod -R g+w .
+
+
