@@ -1,0 +1,1 @@
+/Users/niklas/src/dotfiles/dotsvn_completion

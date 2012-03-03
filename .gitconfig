@@ -1,0 +1,44 @@
+[user]
+	name = Niklas Gustavsson
+	email = niklas@protocol7.com
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  st = status
+  co = checkout
+  br = branch
+  ci = commit
+  a = add
+  pom = push origin master
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+        interactive = auto
+        ui = true
+        pager = true
+
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+
+[core]
+	autocrlf = input
+	safecrlf = true
+	#editor = mvim -f -c \"au VimLeave * !open -a iTerm\"
+	editor = vim
+[branch]
+	autosetuprebase = always
+[push]
+	default = tracking
