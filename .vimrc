@@ -93,6 +93,7 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
+filetype on
 filetype plugin indent on " Turn on filetype plugins (:help filetype-plugin)
 
 if has("autocmd")
