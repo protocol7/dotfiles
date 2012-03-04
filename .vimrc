@@ -131,7 +131,7 @@ if has("statusline") && !&cp
   set statusline=%f\ %m\ %r
 
   " Add fugitive if enabled
-  "set statusline+=%{fugitive#statusline()}
+  set statusline+=%{fugitive#statusline()}
 
   " Add syntastic if enabled
   "set statusline+=%#warningmsg#
@@ -157,6 +157,10 @@ else
   imap <C-F> <ESC>:CtrlP<CR>
 endif
 
+map <leader>zw :ZoomWin<CR>
+
+map <Leader>rt :TagbarToggle<CR>
+
 " fugitive mappings
 nmap <leader>gb :Gblame<CR>
 nmap <leader>gs :Gstatus<CR>
@@ -164,4 +168,4 @@ nmap <leader>gd :Gdiff<CR>
 nmap <leader>gl :Glog<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Git push<CR>
-
+nmap <Leader>gD :diffoff!<cr><c-w>h:bd<cr>
