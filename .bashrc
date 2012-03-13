@@ -169,6 +169,10 @@ test -z "$BASH_COMPLETION" && {
     unset bash bmajor bminor
 }
 
+# for OS X
+if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+  . /usr/local/etc/bash_completion.d/git-completion.bash
+fi
 
 # ----------------------------------------------------------------------
 # LS AND DIRCOLORS
@@ -223,14 +227,18 @@ complete -C "perl -le'\$p=qq#^\$ARGV[1]#;@ARGV=q#$HOME/.ssh/config#;/\$p/&&/^\D/
 # http://jessenoller.com/2011/07/30/quick-pythondeveloper-tips-for-osx-lion/
 export ARCHFLAGS="-arch x86_64"
 
+test &&
+
 # set up prompt
 PS1='${PWD}> '
 if [ -f ~/.shorten-path.bash ]; then
   . ~/.shorten-path.bash
   PS1='$(shorten_path "${PWD}" 30)> '
 
-  if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-    . /usr/local/etc/bash_completion.d/git-completion.bash
+  if [[  `type -t __git_ps1` = "function"  ]]; then
+    export GIT_PS1_SHOWDIRTYSTATE=true
+    export GIT_PS1_SHOWUPSTREAM="auto"
+
     PS1='$(shorten_path "${PWD}" 30)$(__git_ps1 "(%s)")> '
   fi
 fi
