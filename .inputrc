@@ -2,9 +2,6 @@
 set bell-style bell
 
 set expand-tilde off
-set input-meta off
-set convert-meta on
-set output-meta off
 set horizontal-scroll-mode off
 set history-preserve-point on
 set mark-directories on
@@ -21,6 +18,11 @@ set completion-prefix-display-length 10
 set print-completions-horizontally off
 
 set editing-mode vi
+
+# ensure that swedish chars works
+set input-meta on
+set output-meta on
+set convert-meta off
 
 # reload file
 "\C-x\C-r": re-read-init-file
