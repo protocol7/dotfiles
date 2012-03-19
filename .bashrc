@@ -252,6 +252,9 @@ set -o vi
 
 export GPG_DEFAULT_KEY="niklas@protocol7.com"
 
+# get some nice colors in grep
+alias grep='grep --color=auto'
+
 # source ~/.shenv now if it exists
 test -r ~/.shenv &&
 . ~/.shenv
