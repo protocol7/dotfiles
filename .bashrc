@@ -229,19 +229,24 @@ function mvnver() { mvn versions:set -DnewVersion=$1 -DgenerateBackupPoms=false 
 # http://jessenoller.com/2011/07/30/quick-pythondeveloper-tips-for-osx-lion/
 export ARCHFLAGS="-arch x86_64"
 
-test &&
-
+if [ `hostname` = "ngn.local" -o `hostname` = "squeeze64" ]; then
+  HOSTPS1=""
+else
+  HOSTPS1=`hostname -s`
+  HOSTPS1="${USER}@${HOSTPS1} "
+fi
+export HOSTPS1
 # set up prompt
-PS1='${PWD}> '
+PS1='${HOSTPS1}${PWD}> '
 if [ -f ~/.shorten-path.bash ]; then
   . ~/.shorten-path.bash
-  PS1='$(shorten_path "${PWD}" 30)> '
+  PS1='${HOSTPS1}$(shorten_path "${PWD}" 30)> '
 
   if [[  `type -t __git_ps1` = "function"  ]]; then
     export GIT_PS1_SHOWDIRTYSTATE=true
     export GIT_PS1_SHOWUPSTREAM="auto"
 
-    PS1='$(shorten_path "${PWD}" 30)$(__git_ps1 "(%s)")> '
+    PS1='${HOSTPS1}$(shorten_path "${PWD}" 30)$(__git_ps1 "(%s)")> '
   fi
 fi
 
