@@ -93,7 +93,7 @@ set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*.swp,*~,._*
 
 "" Backup and swap files
-function InitBackupDir()
+function! InitBackupDir()
   let parent = $HOME .'/.vim/'
   let backup = parent . 'backup/'
   let tmp = parent . 'tmp/'
