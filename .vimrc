@@ -8,6 +8,30 @@ set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
 
+" Enhance command-line completion
+set wildmenu
+
+" Optimize for fast terminal connections
+set ttyfast
+
+" Highlight current line
+set cursorline
+
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+
+" show column 80
+set colorcolumn=80
+
+" color scheme
+color molokai
+
+" make the color column more subtle
+highlight ColorColumn guibg='Gray 10'
+
+" don't dim comments
+highlight Comment guifg=Gold3
+
 "" Whitespace
 set nowrap                        " don't wrap lines
 set tabstop=2                     " a tab is two spaces
@@ -22,7 +46,7 @@ endif
 
 " List chars
 set listchars=""                  " Reset the listchars
-set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
+set listchars=tab:\▸\             " a tab should display as "▸", trailing whitespace as "."
 set listchars+=trail:.            " show trailing spaces as dots
 set listchars+=extends:>          " The character to show in the last column when wrap is
                                   " off and the line continues beyond the right of the screen
@@ -55,13 +79,9 @@ set wildignore+=*.swp,*~,._*
 set backupdir=~/.vim/backup/    " where to put backup files.
 set directory=~/.vim/tmp/      " where to put swap files.
 
-
-
 "ttowerline options
 set guifont=Inconsolata\ for\ Powerline:h14
 let g:Powerline_symbols = 'fancy'
-
-color molokai
 
 cmap w!! %!sudo tee > /dev/null %
 
