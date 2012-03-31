@@ -124,24 +124,12 @@ ACK_PAGER_COLOR="$PAGER"
 # ----------------------------------------------------------------------
 
 if [ "$UNAME" = Darwin ]; then
-    # put ports on the paths if /opt/local exists
-    test -x /opt/local -a ! -L /opt/local && {
-        PORTS=/opt/local
-
-        # setup the PATH and MANPATH
-        PATH="$PORTS/bin:$PORTS/sbin:$PATH"
-        MANPATH="$PORTS/share/man:$MANPATH"
-
-        # nice little port alias
-        alias port="sudo nice -n +18 $PORTS/bin/port"
-    }
-
     test -x /usr/pkg -a ! -L /usr/pkg && {
         PATH="/usr/pkg/sbin:/usr/pkg/bin:$PATH"
         MANPATH="/usr/pkg/share/man:$MANPATH"
     }
 
-    # setup java environment. puke.
+    # setup java environment
     JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
     export JAVA_HOME
 fi
