@@ -198,6 +198,12 @@ alias ls="command ls $LS_COMMON"
 alias ll="ls -la"
 alias l.="ls -d .*"
 
+alias ..="cd .."
+alias ...="cd ../.."
+
+alias notes="cd ~/Documents/notes"
+alias sp="cd ~/src/sp"
+
 # -------------------------------------------------------------------
 # MAVEN STUFF
 # -------------------------------------------------------------------
