@@ -21,23 +21,20 @@ for host in "$@"; do
 + /.screenrc
 + /.gitconfig
 + /.shorten-path.bash
++ /.wgetrc
 
 + /.vimrc
 + /.gvimrc
 + /.vim
 - /.vim/sessions
-- /.vim/plugin/netrwPlugin.vim
-- /.vim/plugin/ruby_debugger.vim
 - /.vim/swap
 - /.vim/.netrwhist
-+ /.vim/tmp
-- /.vim/tmp/**
-+ /.vim/backup
-- /.vim/backup/**
+- /.vim/tmp
+- /.vim/bundle/*/.git
+- /.vim/backup
 + /.vim/**
 
 + /bin
 + /bin/ack
-+ /bin/sync-home
 FILES
 done
