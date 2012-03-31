@@ -25,6 +25,21 @@ if exists("colorcolumn")
   set colorcolumn=80
 endif
 
+set scrolloff=5               " keep at least 5 lines above/below
+
+" spelling
+if v:version >= 700
+  " Enable spell check for text files
+  autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
+endif
+
+set showmatch                   " show matching brackets
+set formatoptions=tcrql         " t - autowrap to textwidth
+                                " c - autowrap comments to textwidth
+                                " r - autoinsert comment leader with <Enter>
+                                " q - allow formatting of comments with :gq
+                                " l - don't format already long lines
+
 " color scheme
 color molokai
 
@@ -114,9 +129,7 @@ function InitBackupDir()
 endfunction
 call InitBackupDir()
 
-
-
-"ttowerline options
+"Powerline options
 set guifont=Inconsolata\ for\ Powerline:h14
 let g:Powerline_symbols = 'fancy'
 
