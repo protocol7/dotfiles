@@ -243,8 +243,8 @@ if [ -f ~/.shorten-path.bash ]; then
   PS1='${HOSTPS1}$(shorten_path "${PWD}" 30)> '
 
   if [[  `type -t __git_ps1` = "function"  ]]; then
-    export GIT_PS1_SHOWDIRTYSTATE=true
-    export GIT_PS1_SHOWUPSTREAM="auto"
+    #export GIT_PS1_SHOWDIRTYSTATE=true
+    #export GIT_PS1_SHOWUPSTREAM="auto"
 
     PS1='${HOSTPS1}$(shorten_path "${PWD}" 30)$(__git_ps1 "(%s)")> '
   fi
