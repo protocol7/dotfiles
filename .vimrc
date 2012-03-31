@@ -190,3 +190,7 @@ nmap <leader>gl :Glog<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Git push<CR>
 nmap <Leader>gD :diffoff!<cr><c-w>h:bd<cr>
+
+" Move lines up and down
+nmap <Leader><Down> ddp
+nmap <Leader><Up> ddkkp
