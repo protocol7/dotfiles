@@ -244,6 +244,3 @@ nmap <Leader>gD :diffoff!<cr><c-w>h:bd<cr>
 " Move lines up and down
 nmap <Leader><Down> ddp
 nmap <Leader><Up> ddkkp
-
-" ignore PEP8 alignment errors
-let g:syntastic_python_checker_args = "--ignore=E221,E222"
