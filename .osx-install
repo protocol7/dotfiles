@@ -1,0 +1,17 @@
+sudo brew install git
+sudo brew install ack
+sudo brew install dos2unix
+sudo brew install jsl
+sudo brew install tree
+sudo brew install gpsbabel
+sudo brew install unrar
+sudo brew install zeromq
+sudo brew install protobuf
+sudo brew install cmake
+sudo brew install gnupg
+sudo brew install gpg-agent
+sudo brew install node
+sudo brew install pkg-config
+
+curl http://npmjs.org/install.sh | sh   # run as sudo
+npm install -g csslint
