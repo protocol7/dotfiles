@@ -289,3 +289,6 @@ PROMPT_COMMAND="history -a"
 # source ~/.shenv now if it exists
 test -r ~/.shenv &&
       . ~/.shenv
+
+# always end happy
+true
