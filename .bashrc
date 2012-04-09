@@ -253,7 +253,9 @@ myprompt()
   else
     SHORT_PATH=$(PWD)
   fi
-  if [[  `type -t __git_ps1` = "function"  ]]; then
+
+  # show git branch if function exists, but not if we're in the dotfiles repo ($HOME)
+  if [ "$(type -t __git_ps1)" = "function" -a "$(git rev-parse --show-toplevel 2>/dev/null)" != "$HOME" ]; then
     #export GIT_PS1_SHOWDIRTYSTATE=true
     #export GIT_PS1_SHOWUPSTREAM="auto"
 
