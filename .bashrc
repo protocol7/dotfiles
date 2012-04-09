@@ -86,8 +86,8 @@ FIGNORE="~:CVS:#:.pyc:.swp:.swa:apache-solr-*"
 
 # history stuff
 HISTCONTROL=ignoreboth
-HISTFILESIZE=10000
-HISTSIZE=10000
+HISTFILESIZE=100000
+HISTSIZE=100000
 
 
 # ----------------------------------------------------------------------
