@@ -149,7 +149,7 @@ test -z "$BASH_COMPLETION" && {
                  /etc/bash_completion
         do
             test -f $f && {
-                . $f
+                  . $f
                 break
             }
         done
@@ -158,9 +158,8 @@ test -z "$BASH_COMPLETION" && {
 }
 
 # for OS X
-if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-  . /usr/local/etc/bash_completion.d/git-completion.bash
-fi
+test -r /usr/local/etc/bash_completion.d/git-completion.bash &&
+      . /usr/local/etc/bash_completion.d/git-completion.bash
 
 if [ "$UNAME" = Darwin ]; then
   # completion for SSH
@@ -214,7 +213,6 @@ alias mvnee='mvn -DdownloadJavadocs=true -DdownloadSources=true eclipse:eclipse'
 alias mvndep='mvn dependency:tree'
 
 function mvnver() { mvn versions:set -DnewVersion=$1 -DgenerateBackupPoms=false ;}
-
 
 # -------------------------------------------------------------------
 # USER SHELL ENVIRONMENT
@@ -290,4 +288,4 @@ PROMPT_COMMAND="history -a"
 
 # source ~/.shenv now if it exists
 test -r ~/.shenv &&
-. ~/.shenv
+      . ~/.shenv
