@@ -100,8 +100,8 @@ HAVE_GVIM=$(command -v gvim)
 
 # EDITOR
 test -n "$HAVE_VIM" &&
-EDITOR=vim ||
-EDITOR=vi
+    EDITOR=vim ||
+    EDITOR=vi
 export EDITOR
 
 # PAGER
@@ -191,7 +191,7 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 
 # setup the main ls alias if we've established common args
 test -n "$LS_COMMON" &&
-alias ls="command ls $LS_COMMON"
+    alias ls="command ls $LS_COMMON"
 
 # these use the ls aliases above
 alias ll="ls -la"
@@ -239,16 +239,12 @@ myprompt()
     HAPPY=':('
   fi
 
-  if [ `hostname` = "ngn.local" -o `hostname` = "squeeze64" ];
-  then
-    # don't print hostname
-    HOSTPS=""
-  else
+  if [ `hostname` != "ngn.local" -a `hostname` != "squeeze64" ]; then
     HOSTPS1=`hostname -s`
     HOSTPS1="${USER}@${HOSTPS1} "
   fi
 
-  if [[  `type -t shorten_path` = "function"  ]]; then
+  if [[ `type -t shorten_path` = "function" ]]; then
     SHORT_PATH=$(shorten_path "${PWD}" 25)
   else
     SHORT_PATH=$(PWD)
@@ -260,8 +256,6 @@ myprompt()
     #export GIT_PS1_SHOWUPSTREAM="auto"
 
     GIT_BRANCH=$(__git_ps1 "(%s")
-  else
-    GIT_BRANCH=""
   fi
   echo "$HOSTPS1$SHORT_PATH$GIT_BRANCH $HAPPY "
 }
