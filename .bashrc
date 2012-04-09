@@ -223,25 +223,54 @@ function mvnver() { mvn versions:set -DnewVersion=$1 -DgenerateBackupPoms=false 
 # http://jessenoller.com/2011/07/30/quick-pythondeveloper-tips-for-osx-lion/
 export ARCHFLAGS="-arch x86_64"
 
-if [ `hostname` = "ngn.local" -o `hostname` = "squeeze64" ]; then
-  HOSTPS1=""
-else
-  HOSTPS1=`hostname -s`
-  HOSTPS1="${USER}@${HOSTPS1} "
-fi
-export HOSTPS1
 # set up prompt
-PS1='${HOSTPS1}${PWD}> '
-if [ -f ~/.shorten-path.bash ]; then
-  . ~/.shorten-path.bash
-  PS1='${HOSTPS1}$(shorten_path "${PWD}" 30)> '
+test -r ~/.shorten-path.bash &&
+      . ~/.shorten-path.bash
 
+# debug bash
+#set -x
+
+myprompt()
+{
+  # thanks to http://selena.deckelmann.usesthis.com/ for inspiration
+  # must be done before shorten_path and __git_ps1
+  if [ $? == 0 ];
+  then
+    HAPPY=':)'
+  else
+    HAPPY=':('
+  fi
+
+  if [ `hostname` = "ngn.local" -o `hostname` = "squeeze64" ];
+  then
+    # don't print hostname
+    HOSTPS=""
+  else
+    HOSTPS1=`hostname -s`
+    HOSTPS1="${USER}@${HOSTPS1} "
+  fi
+
+  if [[  `type -t shorten_path` = "function"  ]]; then
+    SHORT_PATH=$(shorten_path "${PWD}" 25)
+  else
+    SHORT_PATH=$(PWD)
+  fi
   if [[  `type -t __git_ps1` = "function"  ]]; then
     #export GIT_PS1_SHOWDIRTYSTATE=true
     #export GIT_PS1_SHOWUPSTREAM="auto"
 
-    PS1='${HOSTPS1}$(shorten_path "${PWD}" 30)$(__git_ps1 "(%s)")> '
+    GIT_BRANCH=$(__git_ps1 "(%s")
+  else
+    GIT_BRANCH=""
   fi
+  echo "$HOSTPS1$SHORT_PATH$GIT_BRANCH $HAPPY "
+}
+
+if $(hostname | egrep "(ash|sto|lon).spotify.net$" | grep -vq "int.sto.spotify.net")
+then
+  PS1='\[\e[1;31m\]$(myprompt)\[\e[0m\]'
+else
+  PS1='$(myprompt)'
 fi
 
 # sometimes you have to
