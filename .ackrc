@@ -1,0 +1,12 @@
+# output with color
+--color
+
+# ignore case, unless search term is mixed case
+--smart-case
+
+# ignore common build output directories
+--ignore-dir=build/
+--ignore-dir=target/
+
+# ignore everything in a subdirectiory to debian
+-G^(?!debian/.+/).*$
