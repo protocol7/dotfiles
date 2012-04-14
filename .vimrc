@@ -20,7 +20,7 @@ set cursorline
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
 
-if exists("colorcolumn")
+if exists("&colorcolumn")
   " show column 80
   set colorcolumn=80
 endif
