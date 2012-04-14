@@ -21,6 +21,9 @@ set cursorline
 set nostartofline
 
 if exists("colorcolumn")
+" We live in the future
+set mouse=a
+
   " show column 80
   set colorcolumn=80
 endif
