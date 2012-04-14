@@ -20,6 +20,9 @@ set cursorline
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
 
+" We live in the future
+set mouse=a
+
 if exists("&colorcolumn")
   " show column 80
   set colorcolumn=80
