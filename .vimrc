@@ -1,3 +1,6 @@
+" customize leader
+let mapleader = ','
+
 " load pathogen
 call pathogen#infect()
 
@@ -152,9 +155,6 @@ endif
 "set wildmode
 set wildmode=list:longest
 
-" map leader
-let mapleader = ','
-
 set history=1000
 
 " Don't show swap alert, default value is filnxtToO
@@ -247,3 +247,6 @@ nmap <Leader>gD :diffoff!<cr><c-w>h:bd<cr>
 " Move lines up and down
 nmap <Leader><Down> ddp
 nmap <Leader><Up> ddkkp
+
+" open pydoc window to the right
+let g:pydoc_open_cmd = 'botright 60vsplit'
