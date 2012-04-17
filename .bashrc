@@ -172,7 +172,11 @@ fi
 # ----------------------------------------------------------------------
 
 # we always pass these to ls(1)
-LS_COMMON="-hB --color"
+if [ "$UNAME" = Darwin ]; then
+  LS_COMMON="-hB"
+else
+  LS_COMMON="-hB --color"
+fi
 
 # if the dircolors utility is available, set that up to
 dircolors="$(type -P gdircolors dircolors | head -1)"
