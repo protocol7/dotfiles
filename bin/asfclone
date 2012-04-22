@@ -1,0 +1,16 @@
+#!/bin/sh
+
+GIT_PROJECT=$1
+SVN_PROJECT=$2
+
+cd ~/src/
+git clone git://git.apache.org/$GIT_PROJECT.git
+
+cd $GIT_PROJECT
+git config user.email ngn@apache.org
+
+wget -O .git/authors.txt http://git.apache.org/authors.txt
+git config svn.authorsfile ".git/authors.txt"
+
+git svn init --prefix=origin/ --tags=tags --trunk=trunk --branches=branches https://svn.apache.org/repos/asf/$SVN_PROJECT
+git svn rebase
