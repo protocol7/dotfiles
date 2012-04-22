@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rm -rf ~/.m2/settings.xml
+ln -s ~/.m2/settings-$1.xml ~/.m2/settings.xml
