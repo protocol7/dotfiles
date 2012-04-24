@@ -231,6 +231,10 @@ else
   imap <C-F> <ESC>:CtrlP<CR>
 endif
 
+" configure indent guides (toggle with ,ig)
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
 map <leader>zw :ZoomWin<CR>
 
 map <Leader>rt :TagbarToggle<CR>
