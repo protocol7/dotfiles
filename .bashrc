@@ -264,11 +264,18 @@ myprompt()
   echo "$HOSTPS1$SHORT_PATH$GIT_BRANCH $HAPPY "
 }
 
+OS=" "
+if [ "$UNAME" = Darwin ]; then
+  OS=$'\xef\xa3\xbf'
+fi
+# works around $COLUMN not always being avilable
+COLS=$(($(tput cols)-1))
+
 if $(hostname | egrep "(ash|sto|lon).spotify.net$" | grep -vq "int.sto.spotify.net")
 then
-  PS1='\[\e[1;31m\]$(myprompt)\[\e[0m\]'
+  PS1='\[\e[1;31m\]$(myprompt)\[\e[0m\]\[\033[s\]\[\033[1;${COLS}f\]$OS\[\033[u\]'
 else
-  PS1='$(myprompt)'
+  PS1='$(myprompt)\[\033[s\]\[\033[1;${COLS}f\]$OS\[\033[u\]'
 fi
 
 # sometimes you have to
