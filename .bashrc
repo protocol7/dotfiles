@@ -272,7 +272,7 @@ if [ "$INTERACTIVE" = yes ]; then
   elif $(hostname | egrep "(ash|sto|lon).spotify.net$" | grep -vq "int.sto.spotify.net"); then
     PS1MARKER=$LIVE
   fi
-  # works around $COLUMN not always being avilable
+  # works around $COLUMN not always being available
   COLS=$(($(tput cols)-3))
 
   if [ "$PS1MARKER" = $LIVE ]; then
