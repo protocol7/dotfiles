@@ -5,6 +5,9 @@ set columns=999
 
 macmenu &File.New\ Tab key=<D-S-t>
 
+" antialiasing
+set anti
+
 " set nice tab labels
 set guitablabel=%N\ %t\ %m
 
