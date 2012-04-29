@@ -1,27 +1,18 @@
-" customize leader
+" Customize leader
 let mapleader = ','
 
-" load pathogen
+" Load pathogen
 call pathogen#infect()
 
-" basic config
+" Basic config
 set nocompatible      " Use vim, no vi defaults
 set number            " Show line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
-
-set autoread                          " reload files (no local changes only)
-
-
-" Enhance command-line completion
-set wildmenu
-
-" Optimize for fast terminal connections
-set ttyfast
-
-" Highlight current line
-set cursorline
+set autoread          " reload files (no local changes only)
+set ttyfast           " Optimize for fast terminal connections
+set cursorline        " Highlight current line
 
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
@@ -30,13 +21,13 @@ set nostartofline
 set mouse=a
 
 if exists("&colorcolumn")
-  " show column 80
+  " Show column 80
   set colorcolumn=80
 endif
 
-set scrolloff=5               " keep at least 5 lines above/below
+set scrolloff=3               " keep at least n lines above/below
 
-" spelling
+" Spelling
 if v:version >= 700
   " Enable spell check for text files
   autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
@@ -49,27 +40,27 @@ set formatoptions=tcrql         " t - autowrap to textwidth
                                 " q - allow formatting of comments with :gq
                                 " l - don't format already long lines
 
-" color scheme
+" Color scheme
 color molokai
 
-" make the color column more subtle
+" Make the color column more subtle
 highlight ColorColumn guibg='Gray 10'
 
-" don't dim comments
+" Don't dim comments
 highlight Comment guifg=Gold3
 
-"" Whitespace
+" Whitespace
 set nowrap                        " don't wrap lines
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
-set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
 
 if exists("g:enable_mvim_shift_arrow")
   let macvim_hig_shift_movement = 1 " mvim shift-arrow-keys
 endif
 
+set list                          " Show invisible characters
 " List chars
 set listchars=""                  " Reset the listchars
 set listchars=tab:\▸\             " a tab should display as "▸", trailing whitespace as "."
@@ -79,15 +70,14 @@ set listchars+=extends:>          " The character to show in the last column whe
 set listchars+=precedes:<         " The character to show in the last column when wrap is
                                   " off and the line continues beyond the right of the screen
 
-"" Searching
+" Searching
 set hlsearch    " highlight matches
 set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
-"" Wild settings
-" TODO: Investigate the precise meaning of these settings
-" set wildmode=list:longest,list:full
+" Wildmenu
+set wildmenu          " Enhance command-line completion
 
 " Disable output and VCS files
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
@@ -95,13 +85,10 @@ set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
 " Disable archive files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 
-" Ignore bundler and sass cache
-set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
-
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
 
-"" Backup and swap files
+" Backup and swap files
 function! InitBackupDir()
   let parent = $HOME .'/.vim/'
   let backup = parent . 'backup/'
@@ -138,32 +125,25 @@ function! InitBackupDir()
 endfunction
 call InitBackupDir()
 
-"Powerline options
+" Powerline options
 set guifont=Inconsolata\ for\ Powerline:h14
 let g:Powerline_symbols = 'fancy'
 
-cmap w!! %!sudo tee > /dev/null %
-
-" disable toolbar
+" Disable toolbar
 if has("gui_running")
   set guioptions-=T
 endif
 
-" enable sane text selection
-if has("gui_macvim")
-  let macvim_hig_shift_movement = 1
-endif
-
-" enable sane file selection
-"set wildmode
+" Enable sane file selection
 set wildmode=list:longest
 
+" Include a large command history
 set history=1000
 
 " Don't show swap alert, default value is filnxtToO
 set shortmess=filnxtToOA
 
-" going hard core
+" Going hard core
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
@@ -179,7 +159,7 @@ if has("autocmd")
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
 
-  " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+  " Make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
   " Remember last location in file, but not for commit messages.
@@ -234,7 +214,7 @@ else
   imap <C-F> <ESC>:CtrlP<CR>
 endif
 
-" configure indent guides (toggle with ,ig)
+" Configure indent guides (toggle with ,ig)
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
@@ -242,7 +222,7 @@ map <leader>zw :ZoomWin<CR>
 
 map <Leader>rt :TagbarToggle<CR>
 
-" fugitive mappings
+" Fugitive mappings
 nmap <leader>gb :Gblame<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gdiff<CR>
@@ -255,5 +235,5 @@ nmap <Leader>gD :diffoff!<cr><c-w>h:bd<cr>
 nmap <Leader><Down> ddp
 nmap <Leader><Up> ddkkp
 
-" open pydoc window to the right
+" Open pydoc window to the right
 let g:pydoc_open_cmd = 'botright 60vsplit'
