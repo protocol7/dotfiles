@@ -242,3 +242,6 @@ nmap <Leader><Up> ddkkp
 
 " Open pydoc window to the right
 let g:pydoc_open_cmd = 'botright 60vsplit'
+
+" Always copy to the system clipboard
+set clipboard=unnamed
