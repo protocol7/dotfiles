@@ -264,26 +264,11 @@ myprompt()
   echo "$HOSTPS1$SHORT_PATH$GIT_BRANCH $HAPPY "
 }
 
-# works around $COLUMN not always being available
-cols()
-{
-  echo $(($(tput cols)-3))
-}
-
-if [ "$INTERACTIVE" = yes ]; then
-  LIVE="LIVE"
-  PS1MARKER="    "
-  if [ "$UNAME" = Darwin ]; then
-    PS1MARKER=$'   \xef\xa3\xbf'
-  elif $(hostname | egrep "(ash|sto|lon).spotify.net$" | grep -vq "int.sto.spotify.net"); then
-    PS1MARKER=$LIVE
-  fi
-
-  if [ "$PS1MARKER" = $LIVE ]; then
-    PS1='\[\033[G\]$(myprompt)\[\033[s\]\[\033[1;$(cols)f\]\[\e[1;31m\]$PS1MARKER\[\e[0m\]\[\033[u\]'
-  else
-    PS1='\[\033[G\]$(myprompt)\[\033[s\]\[\033[1;$(cols)f\]$PS1MARKER\[\033[u\]'
-  fi
+if $(hostname | egrep "(ash|sto|lon).spotify.net$" | grep -vq "int.sto.spotify.net")
+then
+  PS1='\[\e[1;31m\]$(myprompt)\[\e[0m\]'
+else
+  PS1='$(myprompt)'
 fi
 
 # sometimes you have to
