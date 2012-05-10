@@ -134,6 +134,11 @@ if has("gui_running")
   set guioptions-=T
 endif
 
+" enable sane text selection
+if has("gui_macvim")
+  let macvim_hig_shift_movement = 1
+endif
+
 " Enable sane file selection
 set wildmode=list:longest
 
