@@ -247,3 +247,13 @@ let g:pydoc_open_cmd = 'botright 60vsplit'
 
 " Always copy to the system clipboard
 set clipboard=unnamed
+
+if has("gui_macvim")
+  function! OnlineDoc()
+    let s:wordUnderCursor = expand("<cword>")
+    let s:cmd = "silent !open dash://" . s:wordUnderCursor
+    execute s:cmd
+  endfunction
+  " Online doc search.
+  map <silent> <Leader>d :call OnlineDoc()<CR>
+endif
