@@ -14,6 +14,8 @@ set autoread          " reload files (no local changes only)
 set ttyfast           " Optimize for fast terminal connections
 set cursorline        " Highlight current line
 
+set showcmd           " show partial command as you type them
+
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
 
