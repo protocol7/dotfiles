@@ -29,6 +29,10 @@ endif
 
 set scrolloff=3               " keep at least n lines above/below
 
+" make split and vsplit open window in sane ways
+set splitright
+set splitbelow
+
 " Spelling
 if v:version >= 700
   " Enable spell check for text files
