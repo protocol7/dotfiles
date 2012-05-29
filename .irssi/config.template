@@ -199,6 +199,4 @@ settings = {
   };
 };
 hilights = ( { text = "ngn"; nick = "yes"; word = "yes"; } );
-ignores = (
-  { level = "JOINS PARTS QUITS MODES TOPICS"; }
-);
+ignores = ( { level = "JOINS PARTS QUITS MODES TOPICS"; } );
