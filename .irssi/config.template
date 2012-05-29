@@ -187,6 +187,7 @@ settings = {
   "fe-common/core" = {
     theme = "oscar";
     activity_hide_level = "parts joins quits nicks modes";
+    show_nickmode = "no";
   };
   "perl/core/scripts" = {
     awl_display_key = "| %K$Q%n $H$C$S";
