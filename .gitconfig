@@ -10,6 +10,7 @@
   ci = commit
   a = add
   pom = push origin master
+	amend = commit --amend -C HEAD
 
 [color]
 	diff = auto
