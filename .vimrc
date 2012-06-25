@@ -22,6 +22,8 @@ set cursorline        " Highlight current line
 
 set showcmd           " show partial command as you type them
 
+set vb t_vb=          " disable any beeping
+
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
 
