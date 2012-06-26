@@ -90,6 +90,12 @@ set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
+" Keep search matches in the middle of the window:
+nnoremap * *zzzv
+nnoremap # #zzzv
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 " Wildmenu
 set wildmenu          " Enhance command-line completion
 
