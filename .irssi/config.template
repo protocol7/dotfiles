@@ -92,7 +92,7 @@ statusbar = {
     # the "default statusbar" to be displayed at the bottom of the window.
     # contains all the normal items.
     window = {
-      disabled = "no";
+      disabled = "yes";
 
       # window, root
       type = "window";
@@ -159,6 +159,13 @@ statusbar = {
         topic_empty = { };
         topicbarend = { priority = "100"; alignment = "right"; };
       };
+      disabled = "yes";
+    };
+    spacer = {
+      type = "root";
+      placement = "bottom";
+      position = "0";
+      visible = "always";
     };
     awl_0 = {
       items = {
@@ -173,13 +180,14 @@ settings = {
   core = {
     real_name = "Niklas Gustavsson";
     user_name = "ngn";
-    nick = "ngn-irssi";
+    nick = "ngn";
     timestamp_format = "%H:%M:%S";
   };
   "fe-text" = { actlist_sort = "refnum"; indent = "28"; };
   "fe-common/core" = {
     theme = "oscar";
     activity_hide_level = "parts joins quits nicks modes";
+    show_nickmode = "no";
   };
   "perl/core/scripts" = {
     awl_display_key = "| %K$Q%n $H$C$S";
@@ -191,6 +199,4 @@ settings = {
   };
 };
 hilights = ( { text = "ngn"; nick = "yes"; word = "yes"; } );
-ignores = (
-  { level = "JOINS PARTS QUITS MODES TOPICS"; }
-);
+ignores = ( { level = "JOINS PARTS QUITS MODES TOPICS"; } );
