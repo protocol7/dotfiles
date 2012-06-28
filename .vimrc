@@ -1,11 +1,20 @@
+set nocompatible      " Use vim, no vi defaults. Set first as it has side
+                      " effects on other settings
+
 " Customize leader
 let mapleader = ','
+
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = []
+
+if v:version < '702'
+    call add(g:pathogen_disabled, 'zoomwin')
+endif
 
 " Load pathogen
 call pathogen#infect()
 
 " Basic config
-set nocompatible      " Use vim, no vi defaults
 
 if exists("&relativenumber")
   set relativenumber    " User nifty relative line numbers
