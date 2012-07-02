@@ -57,6 +57,9 @@ set splitbelow
 if v:version >= 700
   " Enable spell check for text files
   autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
+
+  "spell check when writing commit logs
+  autocmd filetype svn,*commit* setlocal spell spelllang=en
 endif
 
 set showmatch                   " show matching brackets
