@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/show-marks"]
 	path = .vim/bundle/show-marks
 	url = git://github.com/harleypig/ShowMarks.git
+[submodule ".vim/bundle/vivid-chalk"]
+	path = .vim/bundle/vivid-chalk
+	url = git://github.com/tpope/vim-vividchalk.git

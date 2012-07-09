@@ -70,13 +70,7 @@ set formatoptions=tcrql         " t - autowrap to textwidth
                                 " l - don't format already long lines
 
 " Color scheme
-color molokai
-
-" Make the color column more subtle
-highlight ColorColumn guibg='Gray 10'
-
-" Don't dim comments
-highlight Comment guifg=Gold3
+colorscheme vividchalk
 
 " Whitespace
 set nowrap                        " don't wrap lines
