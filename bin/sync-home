@@ -36,5 +36,6 @@ for host in "$@"; do
 
 + /bin
 + /bin/ack
++ /bin/graph
 FILES
 done

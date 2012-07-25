@@ -1,0 +1,63 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from optparse import OptionParser
+import sys
+import re
+
+from collections import defaultdict
+
+parser = OptionParser()
+parser.add_option("-f", "--field", dest="field", default="1", type="int",
+                  help="timestamp field", metavar="FIELD")
+parser.add_option("-m", "--max",
+                  dest="max", default=None, type="int",
+                  help="the maximum to normalize the graph for")
+
+(options, args) = parser.parse_args()
+
+ts_re = re.compile('\d\d:\d\d:\d\d')
+
+counts = defaultdict(int)
+
+ts_length = None
+
+try:
+    for line in sys.stdin:
+        # split on tab and use the field in options
+        ts_field = line.split("\t")[int(options.field) - 1]
+
+        # find the timestamp in the field in ISO 8601 format
+        ts_match = ts_re.search(ts_field)
+
+        if ts_match:
+            ts = ts_field[:ts_match.end()]
+
+            # assume the first line contains a valid timestamp
+            if not ts_length:
+                ts_length = len(ts)
+
+            # ignore invalid timestamps
+            if len(ts) == ts_length:
+                counts[ts] += 1
+
+                # we store one timestamp back in order to allow for
+                # out-of-order logs, thus, when there are three in history,
+                # time to output
+                # TODO print the remaining in history on exit
+                if len(counts) > 2:
+                    first_ts = sorted(counts.iterkeys())[0]
+
+                    counter = counts[first_ts]
+
+                    # normalize the output
+                    if options.max:
+                        stars = int(counter * (40.0 / float(options.max)))
+                    else:
+                        stars = counter
+
+                    print("%s %5d %s" % (first_ts, counter, stars * "*"))
+
+                    del counts[first_ts]
+except KeyboardInterrupt:
+    pass
