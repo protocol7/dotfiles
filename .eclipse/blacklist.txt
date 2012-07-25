@@ -1,0 +1,3 @@
+/instance/org.eclipse.wst.sse.core/task-tag-projects-already-scanned
+/instance/org.eclipse.ui.browser/internalWebBrowserHistory
+/instance/org.eclipse.jdt.ui/content_assist_lru_history
