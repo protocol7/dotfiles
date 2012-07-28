@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from optparse import OptionParser
-import sys
 import re
+import sys
 
 from collections import defaultdict
+from optparse import OptionParser
 
 parser = OptionParser()
 parser.add_option("-f", "--field", dest="field", default="1", type="int",
@@ -13,14 +13,32 @@ parser.add_option("-f", "--field", dest="field", default="1", type="int",
 parser.add_option("-m", "--max",
                   dest="max", default=None, type="int",
                   help="the maximum to normalize the graph for")
+parser.add_option("-s", "--stars",
+                  dest="stars", default=40, type="int",
+                  help="the number of stars to normalize against")
+parser.add_option("-n", "--memory",
+                  dest="memory", default=3, type="int",
+                  help="the number of timestamps to keep, increase " \
+                  "if timestamps heavily overlap")
 
 (options, args) = parser.parse_args()
 
-ts_re = re.compile('\d\d:\d\d:\d\d')
+ts_re = re.compile("\d\d:\d\d:\d\d")
 
 counts = defaultdict(int)
 
 ts_length = None
+
+
+def print_ts(ts, counter):
+    # normalize the output
+    if options.max:
+        stars = int(counter * (float(options.stars) / float(options.max)))
+    else:
+        stars = counter
+
+    print("%s %5d %s" % (ts, counter, stars * "*"))
+
 
 try:
     for line in sys.stdin:
@@ -41,23 +59,21 @@ try:
             if len(ts) == ts_length:
                 counts[ts] += 1
 
-                # we store one timestamp back in order to allow for
-                # out-of-order logs, thus, when there are three in history,
-                # time to output
-                # TODO print the remaining in history on exit
-                if len(counts) > 2:
+                # we store a few timestamps back in order to allow for
+                # out-of-order logs, thus, when there are more than that in
+                # history, time to output
+                if len(counts) >= options.memory:
                     first_ts = sorted(counts.iterkeys())[0]
 
                     counter = counts[first_ts]
 
-                    # normalize the output
-                    if options.max:
-                        stars = int(counter * (40.0 / float(options.max)))
-                    else:
-                        stars = counter
-
-                    print("%s %5d %s" % (first_ts, counter, stars * "*"))
+                    print_ts(first_ts, counter)
 
                     del counts[first_ts]
+
+    # print the remaining timestamps
+    for ts in sorted(counts.iterkeys()):
+        print_ts(ts, counts[ts])
+
 except KeyboardInterrupt:
     pass
