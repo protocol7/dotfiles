@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/vivid-chalk"]
 	path = .vim/bundle/vivid-chalk
 	url = git://github.com/tpope/vim-vividchalk.git
+[submodule ".vim/bundle/gundo"]
+	path = .vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
