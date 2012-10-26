@@ -49,9 +49,6 @@
 [submodule ".vim/bundle/better-css"]
 	path = .vim/bundle/better-css
 	url = https://github.com/vim-scripts/Better-CSS-Syntax-for-Vim.git
-[submodule ".vim/bundle/pydoc"]
-	path = .vim/bundle/pydoc
-	url = https://github.com/fs111/pydoc.vim.git
 [submodule ".vim/bundle/indent-guides"]
 	path = .vim/bundle/indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
@@ -61,9 +58,6 @@
 [submodule ".vim/bundle/vivid-chalk"]
 	path = .vim/bundle/vivid-chalk
 	url = git://github.com/tpope/vim-vividchalk.git
-[submodule ".vim/bundle/gundo"]
-	path = .vim/bundle/gundo
-	url = http://github.com/sjl/gundo.vim.git
 [submodule ".vim/bundle/rainbow-parenthesis"]
 	path = .vim/bundle/rainbow-parenthesis
 	url = git://github.com/vim-scripts/Rainbow-Parenthesis.git
