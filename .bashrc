@@ -1,10 +1,16 @@
 #!/bin/bash
 
+command_exists() {
+    command "$1" &> /dev/null ;
+}
+
 # the basics
 : ${HOME=~}
 : ${LOGNAME=$(id -un)}
-: ${UNAME=$(uname)}
-
+if command_exists uname;
+then
+  : ${UNAME=$(uname)}
+fi
 # complete hostnames from this file
 : ${HOSTFILE=~/.ssh/known_hosts}
 
@@ -243,9 +249,12 @@ myprompt()
     HAPPY=':('
   fi
 
-  if [ `hostname` != "ngn.local" -a `hostname` != "squeeze64" ]; then
-    HOSTPS1=`hostname -s`
-    HOSTPS1="${USER}@${HOSTPS1} "
+  if command_exists hostname;
+  then
+    if [ `hostname` != "ngn.local" -a `hostname` != "ngn-2.local"  -a `hostname` != "squeeze64" ]; then
+      HOSTPS1=`hostname -s`
+      HOSTPS1="${USER}@${HOSTPS1} "
+    fi
   fi
 
   if [[ `type -t shorten_path` = "function" ]]; then
@@ -264,7 +273,7 @@ myprompt()
   echo "$HOSTPS1$SHORT_PATH$GIT_BRANCH $HAPPY "
 }
 
-if $(hostname | egrep "(ash|sto|lon).spotify.net$" | grep -vq "int.sto.spotify.net")
+if command_exists hostname && $(hostname | egrep "(ash|sto|lon).spotify.net$" | grep -vq "int.sto.spotify.net");
 then
   PS1='\[\e[1;31m\]$(myprompt)\[\e[0m\]'
 else
