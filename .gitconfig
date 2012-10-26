@@ -11,6 +11,7 @@
   a = add
   pom = push origin master
   amend = commit --amend -C HEAD
+  ff = merge --ff-only
 
 [color]
   diff = auto
