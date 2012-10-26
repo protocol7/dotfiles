@@ -9,6 +9,8 @@ let g:pathogen_disabled = []
 
 if v:version < '702'
     call add(g:pathogen_disabled, 'zoomwin')
+    call add(g:pathogen_disabled, 'tagbar')
+    call add(g:pathogen_disabled, 'syntastic')
 endif
 
 " Load pathogen
