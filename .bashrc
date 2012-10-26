@@ -295,9 +295,12 @@ alias grep='grep --color=auto'
 # update bash history after each command
 PROMPT_COMMAND="history -a"
 
+alias splog='tail -qf /var/log/syslog /spotify/log/all.log'
+
 # source ~/.shenv now if it exists
 test -r ~/.shenv &&
       . ~/.shenv
 
 # always end happy
 true
+
