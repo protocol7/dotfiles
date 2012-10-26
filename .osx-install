@@ -12,6 +12,9 @@ sudo brew install gnupg
 sudo brew install gpg-agent
 sudo brew install node
 sudo brew install pkg-config
+sudo easy_install git-sweep
+
+sudo easy_install gdal # used by ogr2osm
 
 curl http://npmjs.org/install.sh | sh   # run as sudo
 npm install -g csslint
