@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/rainbow-parenthesis"]
 	path = .vim/bundle/rainbow-parenthesis
 	url = git://github.com/vim-scripts/Rainbow-Parenthesis.git
+[submodule ".vim/bundle/quicktask"]
+	path = .vim/bundle/quicktask
+	url = https://github.com/aaronbieber/quicktask.git
