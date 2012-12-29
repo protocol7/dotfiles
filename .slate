@@ -1,0 +1,47 @@
+config defaultToCurrentScreen true
+config checkDefaultsOnLoad true
+config switchType window  # in 1.1
+config switchIconSize 70
+config windowHintsIgnoreHiddenWindows false
+config windowHintsShowIcons true
+config windowHintsSpread true
+config windowHintsWidth 50
+config windowHintsHeight 50
+
+alias 1-lower-left move screenOriginX;screenOriginY+screenSizeY*2/3 screenSizeX/3;screenSizeY/3 1
+alias 1-upper2-left  move screenOriginX;screenOriginY screenSizeX/3;screenSizeY*2/3 1
+
+default work resolutions:2560x1440;1680x1050;2560x1440
+default laptop resolutions:1680x1050
+
+layout work 'MacVim':REPEAT_LAST,TITLE_ORDER_REGEX=tasks|diary      ${1-lower-left} | throw 0 resize
+layout work 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               ${1-upper2-left} | throw 0 resize
+layout work 'Google Chrome':REPEAT_LAST,TITLE_ORDER_REGEX=graphs    move screenOriginX+screenSizeX/3;screenOriginY screenSizeX*2/3;screenSizeY 1 | throw 0 resize
+layout work 'Adium':TITLE_ORDER_REGEX=Contacts                      corner bottom-left 0 | corner bottom-right 0
+layout work '1Password'                                             move screenOriginX+screenSizeX/8;screenOriginY+screenSizeY/4 screenSizeX*3/5;screenSizeY*2/5 0
+layout work 'Echofon Lite'                                          move screenOriginX+screenSizeX*2/3;screenOriginY screenSizeX/3;screenSizeY 2
+layout work 'Spotify'                                               move screenOriginX;screenOriginY screenSizeX*2/3;screenSizeY 2
+layout work 'Eclipse'                                               throw 0 resize
+
+layout work-split 'MacVim':REPEAT_LAST,TITLE_ORDER_REGEX=tasks|diary      ${1-lower-left} | corner top-left resize:screenSizeX/2;screenSizeY 0
+layout work-split 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               ${1-upper2-left} | move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY 0
+
+layout laptop 'MacVim':REPEAT                                         throw 0 resize
+layout laptop 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY | throw 0 resize
+layout laptop 'Google Chrome':REPEAT_LAST,TITLE_ORDER_REGEX=graphs    throw 0 resize
+layout laptop 'Adium':TITLE_ORDER_REGEX=Contacts                      corner bottom-left 0 | corner bottom-right 0
+layout laptop '1Password'                                             move screenOriginX+screenSizeX/8;screenOriginY+screenSizeY/4 screenSizeX*3/5;screenSizeY*2/5 0
+layout laptop 'Echofon Lite'                                          move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+layout laptop 'Spotify'                                               throw 0 resize
+layout laptop 'Eclipse'                                               throw 0 resize
+
+bind 1:cmd,alt layout work
+bind 2:cmd,alt layout work-split
+bind 3:cmd,alt layout laptop
+
+#bind b:cmd,alt focus 'Google Chrome'
+#bind m:cmd,alt focus 'MacVim'
+#bind i:cmd,alt focus 'iTerm'
+#bind h:cmd,alt hint
+#bind r:cmd,alt relaunch
+#bind tab:cmd switch
