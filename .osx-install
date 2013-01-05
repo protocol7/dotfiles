@@ -14,7 +14,23 @@ sudo brew install node
 sudo brew install pkg-config
 sudo easy_install git-sweep
 
+# install macvim and replace the old system vim with one that works with e.g.
+# the clipboard
+sudo brew install macvim --override-system-vim
+
+# install tmux and fix it's broken clipboard handling
+sudo brew install tmux
+# requires restarting the tmux server when installed, tmux kill-server
+# https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
+sudo brew install reattach-to-user-namespace
+
+
 sudo easy_install gdal # used by ogr2osm
 
+# csslint is nice and used in vim
 curl http://npmjs.org/install.sh | sh   # run as sudo
 npm install -g csslint
+
+# os x doesn't come with watch o_O
+sudo brew install watch
+
