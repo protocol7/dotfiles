@@ -111,12 +111,16 @@ test -n "$HAVE_VIM" &&
 export EDITOR
 
 # PAGER
+# Use vim as MANPAGER
+# http://zameermanji.com/blog/2012/12/30/using-vim-as-manpager/
+MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+
 if test -n "$(command -v less)" ; then
     PAGER="less -FirSwX"
-    MANPAGER="less -FiRswX"
+#    MANPAGER="less -FiRswX"
 else
     PAGER=more
-    MANPAGER="$PAGER"
+#    MANPAGER="$PAGER"
 fi
 export PAGER MANPAGER
 
