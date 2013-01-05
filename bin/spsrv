@@ -1,0 +1,6 @@
+TMP=/tmp/$$
+SERVICE=$1
+SITE=$2
+PROTO=$3
+
+echo $(dig _spotify-${SERVICE}._${PROTO:-http}.$SITE.spotify.net SRV +short | grep -v ';' | awk '{print $4}' | sort | uniq | sed 's/\.$//')
