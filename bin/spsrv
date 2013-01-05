@@ -1,6 +1,28 @@
-TMP=/tmp/$$
-SERVICE=$1
-SITE=$2
-PROTO=$3
+#!/bin/bash
 
-echo $(dig _spotify-${SERVICE}._${PROTO:-http}.$SITE.spotify.net SRV +short | grep -v ';' | awk '{print $4}' | sort | uniq | sed 's/\.$//')
+SERVICE=$1
+
+if [ "$2" = "" ] || [ "$2" = "hm" ] || [ "$2" = "http " ]; then
+  SITES="sto lon ash"
+else
+  SITES=$2
+  shift
+fi
+
+if [ "$2" != "" ]; then
+  PROTO=$2
+else
+  PROTO="http"
+fi
+
+for site in $SITES
+do
+  echo -n $(dig _spotify-${SERVICE}._${PROTO}.$site.spotify.net SRV +short \
+    | grep -v ';' \
+    | awk '{print $4}' \
+    | sort \
+    | uniq \
+    | sed 's/\.$//')
+  echo -n ' '
+done
+echo
