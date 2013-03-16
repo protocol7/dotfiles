@@ -10,18 +10,12 @@
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule ".vim/bundle/nerdcommenter"]
-	path = .vim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule ".vim/bundle/css-color"]
-	path = .vim/bundle/css-color
-	url = https://github.com/ap/vim-css-color.git
 [submodule ".vim/bundle/ack"]
 	path = .vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
@@ -46,24 +40,12 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/better-css"]
-	path = .vim/bundle/better-css
-	url = https://github.com/vim-scripts/Better-CSS-Syntax-for-Vim.git
-[submodule ".vim/bundle/indent-guides"]
-	path = .vim/bundle/indent-guides
-	url = git://github.com/nathanaelkane/vim-indent-guides.git
 [submodule ".vim/bundle/show-marks"]
 	path = .vim/bundle/show-marks
 	url = git://github.com/harleypig/ShowMarks.git
 [submodule ".vim/bundle/vivid-chalk"]
 	path = .vim/bundle/vivid-chalk
 	url = git://github.com/tpope/vim-vividchalk.git
-[submodule ".vim/bundle/rainbow-parenthesis"]
-	path = .vim/bundle/rainbow-parenthesis
-	url = git://github.com/vim-scripts/Rainbow-Parenthesis.git
-[submodule ".vim/bundle/quicktask"]
-	path = .vim/bundle/quicktask
-	url = https://github.com/aaronbieber/quicktask.git
 [submodule ".tmux/tmux-powerline"]
 	path = .tmux/tmux-powerline
 	url = git://github.com/erikw/tmux-powerline.git
