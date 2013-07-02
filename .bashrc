@@ -277,7 +277,7 @@ myprompt()
   echo "$HOSTPS1$SHORT_PATH$GIT_BRANCH $HAPPY "
 }
 
-if command_exists hostname && $(hostname | egrep "(ash|sto|lon).spotify.net$" | grep -vq "int.sto.spotify.net");
+if command_exists hostname && $(hostname | egrep "(ash|sto|lon|sjc)[1-9]?.spotify.net$" | grep -vq "int.sto.spotify.net");
 then
   PS1='\[\e[1;31m\]$(myprompt)\[\e[0m\]'
 else
