@@ -156,9 +156,7 @@ function! InitBackupDir()
 endfunction
 call InitBackupDir()
 
-" Powerline options
 set guifont=Inconsolata\ for\ Powerline:h14
-let g:Powerline_symbols = 'fancy'
 
 " Disable toolbar
 if has("gui_running")
@@ -288,3 +286,19 @@ if has("gui_macvim")
 endif
 
 let g:showmarks_include = "abcdefghijklmnopqrstuvwxyz"
+
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+set ttimeoutlen=50
+let g:airline_right_sep = ''
+let g:airline_left_sep = ''
+let g:airline_linecolumn_prefix = '␊ '
+let g:airline_linecolumn_prefix = '␤ '
+let g:airline_linecolumn_prefix = '¶ '
+let g:airline_fugitive_prefix = '⎇ '
+
+let g:bufferline_echo=0
+set statusline=%{bufferline#generate_string()}

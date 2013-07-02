@@ -25,9 +25,6 @@
 [submodule ".vim/bundle/bad-whitespace"]
 	path = .vim/bundle/bad-whitespace
 	url = https://github.com/bitc/vim-bad-whitespace.git
-[submodule ".vim/bundle/powerline"]
-	path = .vim/bundle/powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule ".vim/bundle/tagbar"]
 	path = .vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
@@ -49,3 +46,15 @@
 [submodule ".tmux/tmux-powerline"]
 	path = .tmux/tmux-powerline
 	url = git://github.com/erikw/tmux-powerline.git
+[submodule ".vim/bundle/vim-clojure-static"]
+	path = .vim/bundle/vim-clojure-static
+	url = https://github.com/guns/vim-clojure-static.git
+[submodule ".vim/bundle/rainbow_parentheses"]
+	path = .vim/bundle/rainbow_parentheses
+	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule ".vim/bundle/airline"]
+	path = .vim/bundle/airline
+	url = https://github.com/bling/vim-airline.git
+[submodule ".vim/bundle/bufferline"]
+	path = .vim/bundle/bufferline
+	url = https://github.com/bling/vim-bufferline.git
