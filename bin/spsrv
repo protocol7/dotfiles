@@ -2,7 +2,7 @@
 
 SERVICE=$1
 
-if [ "$2" = "" ] || [ "$2" = "hm" ] || [ "$2" = "http " ]; then
+if [ "$2" = "" ] || [ "$2" = "hm" ] || [ "$2" = "http " ] || [ "$2" = "tcp" ]; then
   SITES="sto lon ash"
 else
   SITES=$2
