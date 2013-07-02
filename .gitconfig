@@ -12,6 +12,8 @@
   pom = push origin master
   amend = commit --amend -C HEAD
   ff = merge --ff-only
+  push-review = !sh -c 'git push origin HEAD:refs/for/`git symbolic-ref refs/remotes/origin/HEAD|cut -d/ -f4-`/`git rev-parse --abbrev-ref HEAD`'
+  push-draft = !sh -c 'git push origin HEAD:refs/drafts/`git symbolic-ref refs/remotes/origin/HEAD|cut -d/ -f4-`/`git rev-parse --abbrev-ref HEAD`'
 
 [color]
   diff = auto
