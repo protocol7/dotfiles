@@ -2,7 +2,7 @@ set nocompatible      " Use vim, no vi defaults. Set first as it has side
                       " effects on other settings
 
 " Customize leader
-let mapleader = ','
+let mapleader = ' '
 
 " To disable a plugin, add it's bundle name to the following list
 let g:pathogen_disabled = []
