@@ -15,12 +15,12 @@ default work resolutions:2560x1440;1680x1050;2560x1440
 default laptop resolutions:1680x1050
 
 layout work 'MacVim':REPEAT_LAST,TITLE_ORDER_REGEX=tasks|diary      ${1-lower-left} | throw 0 resize
-layout work 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               ${1-upper2-left} | throw 0 resize
+layout work 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               move screenOriginX;screenOriginY screenSizeX/3;screenSizeY 1 | throw 0 resize
 layout work 'Google Chrome':REPEAT_LAST,TITLE_ORDER_REGEX=graphs    move screenOriginX+screenSizeX/3;screenOriginY screenSizeX*2/3;screenSizeY 1 | throw 0 resize
 layout work 'Adium':TITLE_ORDER_REGEX=Contacts                      corner bottom-left 0 | corner bottom-right 0
 layout work '1Password'                                             move screenOriginX+screenSizeX/8;screenOriginY+screenSizeY/4 screenSizeX*3/5;screenSizeY*2/5 0
 layout work 'Echofon Lite'                                          move screenOriginX+screenSizeX*2/3;screenOriginY screenSizeX/3;screenSizeY 2
-layout work 'Spotify'                                               move screenOriginX;screenOriginY screenSizeX*2/3;screenSizeY 2
+layout work 'Spotify'                                               throw 0 resize
 layout work 'Eclipse'                                               throw 0 resize
 
 layout work-split 'MacVim':REPEAT_LAST,TITLE_ORDER_REGEX=tasks|diary      ${1-lower-left} | corner top-left resize:screenSizeX/2;screenSizeY 0
