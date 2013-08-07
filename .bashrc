@@ -170,6 +170,8 @@ test -z "$BASH_COMPLETION" && {
 # for OS X
 test -r /usr/local/etc/bash_completion.d/git-completion.bash &&
       . /usr/local/etc/bash_completion.d/git-completion.bash
+test -r /usr/local/etc/bash_completion.d/git-prompt.sh &&
+      . /usr/local/etc/bash_completion.d/git-prompt.sh
 
 if [ "$UNAME" = Darwin ]; then
   # completion for SSH
