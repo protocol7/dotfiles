@@ -1,0 +1,99 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+
+TODO_FILE = '/Users/niklas/Dropbox/todo.txt'
+
+
+def parse_tasks(todo_file):
+    tasks = []
+
+    with open(todo_file) as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                if line.startswith('---'):
+                    break
+
+                tasks.append(parse_line(line))
+
+    return tasks
+
+
+def sort_tasks(tasks):
+    tasks.sort(key=lambda t: t[1], reverse=True)
+
+    return tasks
+
+
+def parse_line(line):
+    # TODO hack!
+    if line[0] == '2':
+        deadline, task = line.split(' ', 1)
+    else:
+        deadline, task = None, line
+
+    return (task, deadline)
+
+
+def list_tasks(todo_file):
+    tasks = parse_tasks(todo_file)
+    tasks = sort_tasks(tasks)
+
+    for task, deadline in tasks:
+        if deadline:
+            print('%s (%s)' % (task, deadline))
+        else:
+            print('%s' % task)
+
+
+def write_tasks(tasks, todo_file):
+    tmp_file = '%s~' % todo_file
+
+    with open(tmp_file, 'w') as tmp:
+        for task, deadline in tasks:
+            if deadline:
+                tmp.write('%s %s\n' % (deadline, task))
+            else:
+                tmp.write('%s\n' % task)
+
+    os.rename(tmp_file, todo_file)
+
+
+def add_task(task, deadline, todo_file):
+    tasks = parse_tasks(todo_file)
+    tasks.append((task, deadline))
+
+    tasks = sort_tasks(tasks)
+
+    write_tasks(tasks, todo_file)
+
+
+def complete(completed_task, todo_file):
+    tasks = parse_tasks(todo_file)
+
+    for task, deadline in tasks:
+        if completed_task == task:
+            tasks.remove((task, deadline))
+
+    write_tasks(tasks, todo_file)
+
+if len(sys.argv) > 1:
+    cmd = sys.argv[1]
+
+    if cmd == 'complete':
+        task = ' '.join(sys.argv[2:])
+        complete(task, TODO_FILE)
+    else:
+        # add
+        s = ' '.join(sys.argv[1:])
+
+        task, deadline = parse_line(s)
+        add_task(task, deadline, TODO_FILE)
+
+else:
+    # list
+
+    list_tasks(TODO_FILE)
