@@ -173,6 +173,13 @@ test -r /usr/local/etc/bash_completion.d/git-completion.bash &&
 test -r /usr/local/etc/bash_completion.d/git-prompt.sh &&
       . /usr/local/etc/bash_completion.d/git-prompt.sh
 
+# todo.txt
+test -r /usr/local/etc/bash_completion.d/todo_completion && {
+  . /usr/local/etc/bash_completion.d/todo_completion
+  alias t="todo.sh"
+  complete -F _todo t
+}
+
 if [ "$UNAME" = Darwin ]; then
   # completion for SSH
   complete -C "perl -le'\$p=qq#^\$ARGV[1]#;@ARGV=q#$HOME/.ssh/config#;/\$p/&&/^\D/&&not(/[*?]/)&&print for map{split/\s+/}grep{s/^\s*Host(?:Name)?\s+//i}<>'" ssh
