@@ -177,6 +177,9 @@ test -r /usr/local/etc/bash_completion.d/git-prompt.sh &&
 test -r /usr/local/etc/bash_completion.d/todo_completion && {
   . /usr/local/etc/bash_completion.d/todo_completion
   alias t="todo.sh"
+  alias tls="todo.sh ls"
+  alias tadd="todo.sh add"
+  alias tdo="todo.sh do"
   complete -F _todo t
 }
 
