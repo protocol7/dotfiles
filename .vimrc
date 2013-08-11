@@ -1,17 +1,39 @@
 set nocompatible      " Use vim, no vi defaults. Set first as it has side
                       " effects on other settings
 
+filetype off    " vundle required
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" vundle required
+Bundle 'gmarik/vundle'
+
+Bundle 'ajf/puppet-vim'
+Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-fugitive'
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-git'
+Bundle 'vim-scripts/molokai'
+Bundle 'mileszs/ack.vim'
+Bundle 'bitc/vim-bad-whitespace'
+Bundle 'Raimondi/delimitMate'
+Bundle 'harleypig/ShowMarks'
+Bundle 'tpope/vim-vividchalk'
+Bundle 'guns/vim-clojure-static'
+
+
+if v:version >= '702'
+    Bundle 'majutsushi/tagbar'
+    Bundle 'scrooloose/syntastic'
+endif
+
+filetype plugin indent on     " vundle required
+
 " Customize leader
 let mapleader = ' '
-
-" To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = []
-
-if v:version < '702'
-    call add(g:pathogen_disabled, 'zoomwin')
-    call add(g:pathogen_disabled, 'tagbar')
-    call add(g:pathogen_disabled, 'syntastic')
-endif
 
 " Load pathogen
 call pathogen#infect()
@@ -304,7 +326,7 @@ let g:airline_left_sep = ''
 let g:airline_linecolumn_prefix = '␊ '
 let g:airline_linecolumn_prefix = '␤ '
 let g:airline_linecolumn_prefix = '¶ '
-let g:airline_fugitive_prefix = '⎇ '
+let g:airline_branch_prefix = '⎇ '
 
 let g:bufferline_echo=0
 set statusline=%{bufferline#generate_string()}
