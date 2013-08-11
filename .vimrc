@@ -287,6 +287,12 @@ endif
 
 let g:showmarks_include = "abcdefghijklmnopqrstuvwxyz"
 
+" Give this a try perhaps
+nnoremap <Left> :bprev<CR>
+nnoremap <Right> :bnext<CR>
+nnoremap <Up> :buffers<CR>:buffer<SPACE>
+nnoremap <Down> <C-^>
+
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
