@@ -23,7 +23,7 @@ parser.add_option("-n", "--memory",
 
 (options, args) = parser.parse_args()
 
-ts_re = re.compile("\d\d:\d\d:\d\d")
+iso_ts_re = re.compile("(\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d)|(\d{1,2}/[A-Za-z]+/\d{4}:\d\d:\d\d:\d\d)")
 
 counts = defaultdict(int)
 
@@ -42,14 +42,11 @@ def print_ts(ts, counter):
 
 try:
     for line in sys.stdin:
-        # split on tab and use the field in options
-        ts_field = line.split("\t")[int(options.field) - 1]
-
         # find the timestamp in the field in ISO 8601 format
-        ts_match = ts_re.search(ts_field)
+        ts_match = iso_ts_re.search(line)
 
         if ts_match:
-            ts = ts_field[:ts_match.end()]
+            ts = ts_match.group(0)
 
             # assume the first line contains a valid timestamp
             if not ts_length:
