@@ -10,8 +10,10 @@ config windowHintsHeight 50
 
 alias 1-lower-left move screenOriginX;screenOriginY+screenSizeY*2/3 screenSizeX/3;screenSizeY/3 1
 alias 1-upper2-left  move screenOriginX;screenOriginY screenSizeX/3;screenSizeY*2/3 1
+alias two-third  move screenOriginX;screenOriginY screenSizeX/3*2;screenSizeY 0
 
 default work resolutions:2560x1440;1680x1050;2560x1440
+default home resolutions:2560x1440;1680x1050
 default laptop resolutions:1680x1050
 
 layout work 'MacVim':REPEAT_LAST,TITLE_ORDER_REGEX=tasks|diary      ${1-lower-left} | throw 0 resize
@@ -25,6 +27,15 @@ layout work 'Eclipse'                                               throw 0 resi
 
 layout work-split 'MacVim':REPEAT_LAST,TITLE_ORDER_REGEX=tasks|diary      ${1-lower-left} | corner top-left resize:screenSizeX/2;screenSizeY 0
 layout work-split 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               ${1-upper2-left} | move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY 0
+
+layout home 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               move screenOriginX+screenSizeX/3*2;screenOriginY screenSizeX/3;screenSizeY/3*2 0 | ${two-third}
+layout home 'Google Chrome':REPEAT_LAST,TITLE_ORDER_REGEX=graphs    throw 1 resize | ${two-third}
+layout home 'Adium':TITLE_ORDER_REGEX=Contacts                      corner bottom-left 0 | corner bottom-right 0
+layout home '1Password'                                             move screenOriginX+screenSizeX/8;screenOriginY+screenSizeY/4 screenSizeX*3/5;screenSizeY*2/5 0
+layout home 'Echofon Lite'                                          move screenOriginX+screenSizeX*2/3;screenOriginY screenSizeX/3;screenSizeY 2
+layout home 'Spotify'                                               throw 0 resize
+layout home 'Eclipse'                                               ${two-third}
+layout home 'VLC'                                                   move screenOriginX+screenSizeX/3*2;screenOriginY+screenSizeY/3*2 screenSizeX/3;screenSizeY/3 0
 
 layout laptop 'MacVim':REPEAT                                         throw 0 resize
 layout laptop 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY | throw 0 resize
