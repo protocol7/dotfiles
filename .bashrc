@@ -9,7 +9,7 @@ command_exists() {
 : ${LOGNAME=$(id -un)}
 if command_exists uname;
 then
-  : ${UNAME=$(uname)}
+  UNAMEX=$(uname)
 fi
 # complete hostnames from this file
 : ${HOSTFILE=~/.ssh/known_hosts}
@@ -133,7 +133,7 @@ ACK_PAGER_COLOR="$PAGER"
 # MACOS X / DARWIN SPECIFIC
 # ----------------------------------------------------------------------
 
-if [ "$UNAME" = Darwin ]; then
+if [ "$UNAMEX" = "Darwin" ]; then
     test -x /usr/pkg -a ! -L /usr/pkg && {
         PATH="/usr/pkg/sbin:/usr/pkg/bin:$PATH"
         MANPATH="/usr/pkg/share/man:$MANPATH"
@@ -188,7 +188,7 @@ test -r /usr/local/etc/bash_completion.d/todo_completion && {
 # ----------------------------------------------------------------------
 
 # we always pass these to ls(1)
-if [ "$UNAME" = Darwin ]; then
+if [ "$UNAMEX" = "Darwin" ]; then
   LS_COMMON="-hB"
 else
   LS_COMMON="-hB --color"
