@@ -3,7 +3,7 @@
 # From https://github.com/wbond/mtmux
 
 if [[ -e $1 ]]; then
-  SERVERS=$(cat $1)
+  SERVERS=$(cat $1 | tr '\n' ' ')
   SESSION_NAME=$1
 elif [[ -e ~/.mtmux/$1 ]]; then
   SESSION_NAME=$1
