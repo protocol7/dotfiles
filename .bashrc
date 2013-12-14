@@ -323,6 +323,7 @@ function marks {
   ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
 
+alias cget="curl -vso /dev/null"
 
 # source ~/.shenv now if it exists
 test -r ~/.shenv &&
