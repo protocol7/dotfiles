@@ -8,9 +8,10 @@ fi
 SERVICE=$1
 
 if [ "$2" = "" ] || [ "$2" = "hm" ] || [ "$2" = "http " ] || [ "$2" = "tcp" ]; then
-  SITES="sto lon ash"
+  PODS="sto1 lon2 ash1 sjc1 sto3 lon3 ash2"
+
 else
-  SITES=$2
+  PODS=$2
   shift
 fi
 
@@ -20,9 +21,9 @@ else
   PROTO="http"
 fi
 
-for site in $SITES
+for pod in $PODS
 do
-  echo -n $(dig _spotify-${SERVICE}._${PROTO}.$site.spotify.net SRV +short \
+  echo -n $(dig _spotify-${SERVICE}._${PROTO}.$pod.spotify.net SRV +short \
     | grep -v ';' \
     | awk '{print $4}' \
     | sort \
