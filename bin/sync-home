@@ -37,5 +37,9 @@ for host in "$@"; do
 + /bin
 + /bin/ack
 + /bin/graph
++ /bin/spsrv
++ /bin/spsrvssh
++ /bin/spsrvmscp
++ /bin/spsrvmssh
 FILES
 done
