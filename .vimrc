@@ -329,3 +329,5 @@ let g:airline_branch_prefix = '⎇ '
 
 let g:bufferline_echo=0
 set statusline=%{bufferline#generate_string()}
+
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
