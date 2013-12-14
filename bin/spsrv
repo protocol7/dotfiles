@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -f $1 ]; then
+  cat $1 | tr '\n' ' '
+  exit
+fi
+
 SERVICE=$1
 
 if [ "$2" = "" ] || [ "$2" = "hm" ] || [ "$2" = "http " ] || [ "$2" = "tcp" ]; then
