@@ -261,7 +261,7 @@ myprompt()
 
   if command_exists hostname;
   then
-    if [ `hostname` != "ngn.local" -a `hostname` != "ngn-2.local"  -a `hostname` != "squeeze64" ]; then
+    if [[ ! "ngn.local ngn-2.local squeeze64 ngn-vagrant" =~ `hostname` ]]; then
       HOSTPS1=`hostname -s`
       HOSTPS1="${USER}@${HOSTPS1} "
     fi
