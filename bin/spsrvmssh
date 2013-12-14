@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cmd=$1
+shift
+
+t=/tmp/spsrvpssh.$$.tmp
+
+spsrv $* | tr ' ' '\n' > $t
+
+pssh -p 5 -h $t -i $cmd
