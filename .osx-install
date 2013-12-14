@@ -14,6 +14,7 @@ sudo brew install node
 sudo brew install pkg-config
 sudo easy_install git-sweep
 
+
 # install macvim and replace the old system vim with one that works with e.g.
 # the clipboard
 sudo brew install macvim --override-system-vim
@@ -34,3 +35,6 @@ npm install -g csslint
 # os x doesn't come with watch o_O
 sudo brew install watch
 
+# gd is a gnuplot dependency, install with freetype
+sudo brew install --with-freetype gd
+sudo brew install gnuplot
