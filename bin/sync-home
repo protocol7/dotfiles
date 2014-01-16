@@ -18,6 +18,7 @@ for host in "$@"; do
 + /.bashrc
 + /.dircolors
 
++ /.psqlrc
 + /.screenrc
 + /.gitconfig
 + /.shorten-path.bash
