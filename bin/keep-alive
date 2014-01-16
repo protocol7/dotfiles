@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# Simple hack to test the Keep-Alive timeout of a HTTP server. Expects two
+# arguments:
+# keep-alive <timeouts> <url>
+#
+# timeouts are a comma separated list of timeouts that should be tested
+# url is a URL that will be requested
+
+import httplib2
+import sys
+import threading
+import time
+
+timeouts = [int(i) for i in sys.argv[1].split(",")]
+url = sys.argv[2]
+
+
+def test(url, timeout):
+    h = httplib2.Http()
+
+    def get_socket():
+        # there should only ever be one connection, so grab the first one
+        for c in h.connections.itervalues():
+            return c.sock
+
+    def request(h, url):
+        resp, content = h.request(url)
+        socket = get_socket()
+        return (resp.status, socket)
+
+    status1, sock1 = request(h, url)
+
+    if status1 != 200:
+        print("Request failed for %s: %s" % (timeout, status1))
+        return
+
+    time.sleep(timeout)
+
+    status2, sock2 = request(h, url)
+
+    if not sock1 is sock2:
+        print("New socket, failed at %s s" % timeout)
+    else:
+        print("Keep-alive after %s s OK" % timeout)
+
+threads = []
+for timeout in timeouts:
+    t = threading.Thread(target=test, args=(url, timeout))
+    t.daemon = True
+    t.start()
+    threads += [t]
+
+for t in threads:
+    t.join()
