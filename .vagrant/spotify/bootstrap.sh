@@ -9,4 +9,5 @@ apt-get install -y --force-yes spotify-apt-keys
 apt-get install -y --force-yes spotify-maven-config \
                    spotify-hermes-utils \
                    spotify-python-dht-tools \
-                   git-completion
+                   git-completion \
+                   spotify-supervision2-debhelper
