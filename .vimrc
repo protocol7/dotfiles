@@ -22,7 +22,13 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'harleypig/ShowMarks'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'guns/vim-clojure-static'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
+Bundle 'terryma/vim-expand-region'
 
+let g:expand_region_text_objects_clojure = {
+      \ 'a)' :1,
+      \ }
 
 if v:version >= '702'
     Bundle 'majutsushi/tagbar'
