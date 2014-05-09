@@ -12,9 +12,9 @@ alias 1-lower-left move screenOriginX;screenOriginY+screenSizeY*2/3 screenSizeX/
 alias 1-upper2-left  move screenOriginX;screenOriginY screenSizeX/3;screenSizeY*2/3 1
 alias two-third  move screenOriginX;screenOriginY screenSizeX/3*2;screenSizeY 0
 
-default work resolutions:2560x1440;1680x1050;2560x1440
+default work resolutions:2560x1440;1440x900;2560x1440
 default home resolutions:2560x1440;1680x1050
-default laptop resolutions:1680x1050
+default laptop resolutions:1440x900
 
 layout work 'MacVim':REPEAT_LAST,TITLE_ORDER_REGEX=tasks|diary      ${1-lower-left} | throw 0 resize
 layout work 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               move screenOriginX;screenOriginY+screenSizeY*2/3 screenSizeX;screenSizeY/3 1 | throw 0 resize
