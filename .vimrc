@@ -337,3 +337,7 @@ let g:bufferline_echo=0
 set statusline=%{bufferline#generate_string()}
 
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+
+" Add command for running git grep and open in a quick window
+"autocmd QuickFixCmdPost *grep* cwindow
+command! -nargs=+ GG execute 'silent Ggrep! <args>' | copen 10
