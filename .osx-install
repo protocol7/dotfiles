@@ -38,3 +38,52 @@ sudo brew install watch
 # gd is a gnuplot dependency, install with freetype
 sudo brew install --with-freetype gd
 sudo brew install gnuplot
+
+sudo brew tap caskroom/cask
+sudo brew install brew-cask
+sudo brew cask install google-chrome
+sudo brew cask install divvy
+sudo brew cask install alfred
+sudo brew cask install skype
+sudo brew cask install rstudio
+sudo brew cask install osxfuse
+# sudo brew cask install onepassword
+sudo brew cask install mendeley-desktop
+sudo brew cask install kindle
+sudo brew cask install gimp
+sudo brew cask install calibre
+sudo brew cask install caffeine
+sudo brew cask install adium
+sudo brew cask install slate
+sudo brew cask install tunnelblick
+sudo brew cask install dropbox
+sudo brew cask install iterm2
+sudo brew cask install omnigraffle
+sudo brew cask install istat-menus
+sudo brew cask install chicken
+sudo brew cask install dash
+sudo brew cask install eclipse-ide
+sudo brew cask install sonos
+sudo brew cask install utorrent
+sudo brew cask install vagrant
+sudo brew cask install virtualbox
+sudo brew cask install wireshark
+sudo brew cask install truecrypt
+sudo brew cask install vlc
+sudo brew cask install steam
+sudo brew cask install remote-desktop-connection
+sudo brew cask install minecraft
+sudo brew cask install josm
+sudo brew cask install google-earth
+sudo brew cask install arduino
+sudo brew cask install filezilla
+sudo brew cask install flickr-uploadr
+sudo brew cask install soundflower
+
+# dependencies for iPython
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
+sudo -E pip install matplotlib
+sudo -E pip install pandas
+sudo -E pip install basemap
+sudo -E pip install pyshp
