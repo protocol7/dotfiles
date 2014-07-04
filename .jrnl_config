@@ -1,0 +1,13 @@
+{
+  "default_hour": 9,
+  "timeformat": "%Y-%m-%dT%H:%M",
+  "linewrap": 79,
+  "encrypt": false,
+  "editor": "vim",
+  "default_minute": 0,
+  "highlight": true,
+  "journals": {
+    "default": "/Users/niklas/Dropbox/notes/journal.txt"
+  },
+  "tagsymbols": "@"
+}
