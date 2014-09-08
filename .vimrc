@@ -25,6 +25,7 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'terryma/vim-expand-region'
+Bundle 'wting/rust.vim'
 
 let g:expand_region_text_objects_clojure = {
       \ 'a)' :1,
