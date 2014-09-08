@@ -87,3 +87,5 @@ sudo -E pip install matplotlib
 sudo -E pip install pandas
 sudo -E pip install basemap
 sudo -E pip install pyshp
+sudo pip install patsy
+sudo -E pip install statsmodels
