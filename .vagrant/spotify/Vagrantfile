@@ -19,8 +19,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.synced_folder "/Users/niklas/.m2", "/home/vagrant/.m2"
   config.vm.synced_folder "/Users/niklas/src", "/home/vagrant/src"
+  config.vm.synced_folder "/Users/niklas/Downloads", "/home/vagrant/Downloads"
 
   config.vm.provider :virtualbox do |vb|
+    vb.name = "spotify"
     vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
 end
