@@ -305,7 +305,7 @@ alias grep='grep --color=auto'
 # update bash history after each command
 PROMPT_COMMAND="history -a"
 
-alias splog='tail -qf /var/log/syslog /spotify/log/all.log'
+alias splog='tail -qf /var/log/syslog /spotify/log/all.log /var/log/nginx/access.log /var/log/cassandra/system.log'
 
 # Set up directory jump functions
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
