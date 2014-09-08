@@ -18,7 +18,7 @@ default laptop resolutions:1440x900
 
 layout work 'MacVim':REPEAT_LAST,TITLE_ORDER_REGEX=tasks|diary      ${1-lower-left} | throw 0 resize
 layout work 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               move screenOriginX;screenOriginY+screenSizeY*2/3 screenSizeX;screenSizeY/3 1 | throw 0 resize
-layout work 'Google Chrome':REPEAT_LAST,TITLE_ORDER_REGEX='Twerk it'     move screenOriginX;screenOriginY screenSizeX;screenSizeY*2/3 1 | throw 0 resize
+layout work 'Google Chrome':REPEAT_LAST,TITLE_ORDER_REGEX='Alien'     move screenOriginX;screenOriginY screenSizeX;screenSizeY*2/3 1 | throw 0 resize
 layout work 'Adium':TITLE_ORDER_REGEX=Contacts                      corner bottom-left 0 | corner bottom-right 0
 layout work '1Password'                                             move screenOriginX+screenSizeX/8;screenOriginY+screenSizeY/4 screenSizeX*3/5;screenSizeY*2/5 0
 layout work 'Echofon Lite'                                          move screenOriginX+screenSizeX*2/3;screenOriginY screenSizeX/3;screenSizeY 2
@@ -29,7 +29,7 @@ layout work-split 'MacVim':REPEAT_LAST,TITLE_ORDER_REGEX=tasks|diary      ${1-lo
 layout work-split 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               ${1-upper2-left} | move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY 0
 
 layout home 'iTerm':REPEAT_LAST,TITLE_ORDER_REGEX=irc               move screenOriginX+screenSizeX/3*2;screenOriginY screenSizeX/3;screenSizeY/3*2 0 | ${two-third}
-layout home 'Google Chrome':REPEAT_LAST,TITLE_ORDER_REGEX='Twerk it'     throw 1 resize | ${two-third}
+layout home 'Google Chrome':REPEAT_LAST,TITLE_ORDER_REGEX='Alien'     throw 1 resize | ${two-third}
 layout home 'Adium':TITLE_ORDER_REGEX=Contacts                      corner bottom-left 0 | corner bottom-right 0
 layout home '1Password'                                             move screenOriginX+screenSizeX/8;screenOriginY+screenSizeY/4 screenSizeX*3/5;screenSizeY*2/5 0
 layout home 'Echofon Lite'                                          move screenOriginX+screenSizeX*2/3;screenOriginY screenSizeX/3;screenSizeY 2
