@@ -325,6 +325,10 @@ function marks {
 
 alias cget="curl -vso /dev/null"
 
+function mkd {
+  mkdir $1 && cd $1
+}
+
 # source ~/.shenv now if it exists
 test -r ~/.shenv &&
       . ~/.shenv
