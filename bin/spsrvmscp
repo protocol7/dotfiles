@@ -1,13 +1,1 @@
-#!/bin/bash
-
-fromfile=$1
-shift
-
-tofile=$1
-shift
-
-t=/tmp/spsrvpssh.$$.tmp
-
-spsrv $* | tr ' ' '\n' > $t
-
-pscp -p 5 -h $t $fromfile $tofile
+/Users/niklas/src/sp/sptools/spsrvmscp

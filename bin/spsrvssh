@@ -1,7 +1,1 @@
-#!/bin/bash
-
-if [[ -n $TMUX ]]; then
-  mtmux $(spsrv $*)
-else
-  i2cssh -m $(spsrv $* | tr ' ' ',')
-fi
+/Users/niklas/src/sp/sptools/spsrvssh
