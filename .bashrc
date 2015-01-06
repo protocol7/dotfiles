@@ -59,6 +59,9 @@ PATH="/usr/local/bin:$PATH"
 test -d "$HOME/bin" &&
   PATH="$HOME/bin:$PATH"
 
+test -d "$HOME/src/sp/sptools/" &&
+  PATH="$HOME/src/sp/sptools/:$PATH"
+
 export PATH
 
 # ----------------------------------------------------------------------
