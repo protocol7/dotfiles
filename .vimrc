@@ -26,6 +26,7 @@ Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'terryma/vim-expand-region'
 Bundle 'wting/rust.vim'
+Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 
 let g:expand_region_text_objects_clojure = {
@@ -343,3 +344,5 @@ au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 " Add command for running git grep and open in a quick window
 "autocmd QuickFixCmdPost *grep* cwindow
 command! -nargs=+ GG execute 'silent Ggrep! <args>' | copen 10
+
+au BufNewFile,BufRead *.clj RainbowParenthesesToggle
