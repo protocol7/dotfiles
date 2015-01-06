@@ -14,6 +14,7 @@ sudo brew install node
 sudo brew install pkg-config
 sudo easy_install git-sweep
 sudo brew install ssh-copy-id
+sudo brew install boot2docker
 
 # install macvim and replace the old system vim with one that works with e.g.
 # the clipboard
