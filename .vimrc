@@ -345,4 +345,6 @@ au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 "autocmd QuickFixCmdPost *grep* cwindow
 command! -nargs=+ GG execute 'silent Ggrep! <args>' | copen 10
 
+au BufNewFile,BufRead *.md set filetype=markdown
+
 au BufNewFile,BufRead *.clj RainbowParenthesesToggle
