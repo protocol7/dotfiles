@@ -26,6 +26,7 @@ Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'terryma/vim-expand-region'
 Bundle 'wting/rust.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 
 let g:expand_region_text_objects_clojure = {
       \ 'a)' :1,
@@ -321,10 +322,10 @@ nnoremap <Right> :bnext<CR>
 nnoremap <Up> :buffers<CR>:buffer<SPACE>
 nnoremap <Down> <C-^>
 
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+"nmap <silent> <c-k> :wincmd k<CR>
+"#nmap <silent> <c-j> :wincmd j<CR>
+"nmap <silent> <c-h> :wincmd h<CR>
+"nmap <silent> <c-l> :wincmd l<CR>
 
 set ttimeoutlen=50
 let g:airline_right_sep = ''
