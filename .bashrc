@@ -336,6 +336,12 @@ function mkd {
 test -r ~/.shenv &&
       . ~/.shenv
 
+# GCP
+test -r ~/dev/google-cloud-sdk/path.bash.inc &&
+  . ~/dev/google-cloud-sdk/path.bash.inc
+test -r ~/dev/google-cloud-sdk/completion.bash.inc &&
+  . ~/dev/google-cloud-sdk/completion.bash.inc
+
 # always end happy
 true
 
