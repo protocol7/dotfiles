@@ -331,10 +331,10 @@ nnoremap <Down> <C-^>
 set ttimeoutlen=50
 let g:airline_right_sep = ''
 let g:airline_left_sep = ''
-let g:airline_linecolumn_prefix = '␊ '
-let g:airline_linecolumn_prefix = '␤ '
-let g:airline_linecolumn_prefix = '¶ '
-let g:airline_branch_prefix = '⎇ '
+"let g:airline_linecolumn_prefix = '␊ '
+"let g:airline_linecolumn_prefix = '␤ '
+let g:airline_symbols#linenr = '¶ '
+let g:airline_symbols#branch = '⎇ '
 
 let g:bufferline_echo=0
 set statusline=%{bufferline#generate_string()}
