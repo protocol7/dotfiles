@@ -273,7 +273,7 @@ myprompt()
   if [[ `type -t shorten_path` = "function" ]]; then
     SHORT_PATH=$(shorten_path "${PWD}" 25)
   else
-    SHORT_PATH=$(PWD)
+    SHORT_PATH=${PWD}
   fi
 
   # show git branch if function exists, but not if we're in the dotfiles repo ($HOME)
