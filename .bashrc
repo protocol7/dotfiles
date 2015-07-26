@@ -88,7 +88,7 @@ esac
 #: ${LC_ALL:="en_US.UTF-8"}
 #export LANG LANGUAGE LC_CTYPE LC_ALL
 
-export LC_CTYPE=en_US.UTF-8
+#export LC_CTYPE=en_US.UTF-8
 
 # ignore backups, CVS directories, python bytecode, vim swap files
 FIGNORE="~:CVS:#:.pyc:.swp:.swa:apache-solr-*"
