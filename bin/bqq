@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+import os.path
+import subprocess
+import sys
+
+path = sys.argv[-1]
+args = sys.argv[1:-1]
+
+
+def print_error(s):
+    print('\033[91m' + s + '\033[0m', file=sys.stderr)
+
+
+if len(args) % 2 != 0:
+    print_error("Unbalanced options")
+    exit(1)
+
+if os.path.isfile(path):
+    with open(path, 'r') as f:
+        template = f.read()
+else:
+    template = path
+
+for k, v in zip(args[::2], args[1::2]):
+    k = k.strip('-')
+    template = template.replace('{%s}' % k, v)
+
+p = subprocess.Popen(['bq', 'query', '--format', 'csv', '-n', '99999', template],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE)
+out, err = p.communicate()
+if p.returncode != 0:
+    if out:
+        print_error(out)
+    if err:
+        print_error(err)
+    exit(2)
+else:
+    if err:
+        print_error(err)
+
+    # First line is junk, ignore
+    lines = out.split('\n')
+    print('\n'.join(lines[1:]))
