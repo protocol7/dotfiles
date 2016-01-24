@@ -310,22 +310,6 @@ PROMPT_COMMAND="history -a"
 
 alias splog='tail -qf /var/log/syslog /spotify/log/all.log /var/log/nginx/access.log /var/log/cassandra/system.log'
 
-# Set up directory jump functions
-# http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
-export MARKPATH=$HOME/.marks
-function j {
-  cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
-}
-function mark {
-  mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
-}
-function unmark {
-  rm -i $MARKPATH/$1
-}
-function marks {
-  ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
-}
-
 alias cget="curl -vso /dev/null"
 
 function mkd {
