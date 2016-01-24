@@ -15,7 +15,7 @@ fi
 tmux new-window -a -n $SESSION_NAME
 shift
 for SERVER in $SERVERS; do
-  tmux split-window "ssh $SERVER"
+  tmux split-window "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $SERVER"
   tmux select-layout tiled
 done
 tmux kill-pane -t 0
