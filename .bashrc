@@ -320,6 +320,9 @@ function mkd {
 test -r ~/.shenv &&
       . ~/.shenv
 
+PERL_MB_OPT="--install_base \"/Users/niklas/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/niklas/perl5"; export PERL_MM_OPT;
+
 # GCP
 test -r ~/dev/google-cloud-sdk/path.bash.inc &&
   . ~/dev/google-cloud-sdk/path.bash.inc
