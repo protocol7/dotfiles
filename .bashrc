@@ -335,4 +335,3 @@ alias j=jrnl
 
 # always end happy
 true
-
