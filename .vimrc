@@ -102,7 +102,7 @@ set formatoptions=tcrql         " t - autowrap to textwidth
                                 " l - don't format already long lines
 
 " Color scheme
-"colorscheme vividchalk
+colorscheme vividchalk
 
 " Whitespace
 set nowrap                        " don't wrap lines
