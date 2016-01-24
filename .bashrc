@@ -328,6 +328,8 @@ test -r ~/dev/google-cloud-sdk/completion.bash.inc &&
 
 alias spcpm='spcpm --crtauth-user ngn'
 
+alias j=jrnl
+
 # always end happy
 true
 
