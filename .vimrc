@@ -25,7 +25,7 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'terryma/vim-expand-region'
-Bundle 'wting/rust.vim'
+Plugin 'rust-lang/rust.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 
