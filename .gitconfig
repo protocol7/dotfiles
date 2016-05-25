@@ -46,7 +46,9 @@
 [branch]
   autosetuprebase = always
 [push]
-	default = current
+  default = current
+  [github]
+    user = ngn
 
 [transfer]
   fsckobjects = true
