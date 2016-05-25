@@ -28,6 +28,7 @@ Bundle 'terryma/vim-expand-region'
 Plugin 'rust-lang/rust.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'henrik/git-grep-vim'
 
 let g:expand_region_text_objects_clojure = {
       \ 'a)' :1,
@@ -340,10 +341,6 @@ let g:bufferline_echo=0
 set statusline=%{bufferline#generate_string()}
 
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
-
-" Add command for running git grep and open in a quick window
-"autocmd QuickFixCmdPost *grep* cwindow
-command! -nargs=+ GG execute 'silent Ggrep! <args>' | copen 10
 
 au BufNewFile,BufRead *.md set filetype=markdown
 
