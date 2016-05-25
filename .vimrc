@@ -29,6 +29,7 @@ Plugin 'rust-lang/rust.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'henrik/git-grep-vim'
+Bundle 'airblade/vim-gitgutter'
 
 let g:expand_region_text_objects_clojure = {
       \ 'a)' :1,
