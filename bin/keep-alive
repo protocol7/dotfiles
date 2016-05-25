@@ -18,7 +18,7 @@ url = sys.argv[2]
 
 
 def test(url, timeout):
-    h = httplib2.Http()
+    h = httplib2.Http(disable_ssl_certificate_validation=True)
 
     def get_socket():
         # there should only ever be one connection, so grab the first one
