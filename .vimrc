@@ -65,7 +65,7 @@ set cursorline        " Highlight current line
 
 set showcmd           " show partial command as you type them
 
-set updatetime=500    " timeout for writing swap file, also affect showmarks
+set updatetime=250    " timeout for writing swap file, also affect showmarks
                       " updates
 
 set vb t_vb=          " disable any beeping
