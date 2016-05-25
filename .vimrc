@@ -90,7 +90,7 @@ set splitbelow
 " Spelling
 if v:version >= 700
   " Enable spell check for text files
-  autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
+  autocmd BufNewFile,BufRead *.txt,*.md setlocal spell spelllang=en
 
   "spell check when writing commit logs
   autocmd filetype svn,*commit* setlocal spell spelllang=en
