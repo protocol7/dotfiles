@@ -339,7 +339,7 @@ let g:airline_symbols#linenr = '¶ '
 let g:airline_symbols#branch = '⎇ '
 
 let g:bufferline_echo=0
-set statusline=%{bufferline#generate_string()}
+autocmd VimEnter * let &statusline='%{bufferline#refresh_status()}' .bufferline#get_status_string()
 
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
