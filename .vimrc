@@ -9,6 +9,7 @@ call vundle#rc()
 " vundle required
 Bundle 'gmarik/vundle'
 
+Bundle 'tpope/vim-sensible'
 Bundle 'ajf/puppet-vim'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-fugitive'
@@ -56,10 +57,6 @@ else
   set number            " Show line numbers
 endif
 
-set ruler             " Show line and column number
-syntax enable         " Turn on syntax highlighting allowing local overrides
-set encoding=utf-8    " Set default encoding to UTF-8
-set autoread          " reload files (no local changes only)
 set ttyfast           " Optimize for fast terminal connections
 set cursorline        " Highlight current line
 
@@ -80,8 +77,6 @@ if exists("&colorcolumn")
   " Show column 80
   set colorcolumn=80
 endif
-
-set scrolloff=3               " keep at least n lines above/below
 
 " make split and vsplit open window in sane ways
 set splitright
@@ -111,25 +106,15 @@ set nowrap                        " don't wrap lines
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
-set backspace=indent,eol,start    " backspace through everything in insert mode
 
 if exists("g:enable_mvim_shift_arrow")
   let macvim_hig_shift_movement = 1 " mvim shift-arrow-keys
 endif
 
 set list                          " Show invisible characters
-" List chars
-set listchars=""                  " Reset the listchars
-set listchars=tab:\▸\             " a tab should display as "▸", trailing whitespace as "."
-set listchars+=trail:.            " show trailing spaces as dots
-set listchars+=extends:>          " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the right of the screen
-set listchars+=precedes:<         " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the right of the screen
 
 " Searching
 set hlsearch    " highlight matches
-set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
@@ -138,9 +123,6 @@ nnoremap * *zzzv
 nnoremap # #zzzv
 nnoremap n nzzzv
 nnoremap N Nzzzv
-
-" Wildmenu
-set wildmenu          " Enhance command-line completion
 
 " Disable output and VCS files
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
@@ -203,9 +185,6 @@ endif
 " Enable sane file selection
 set wildmode=list:longest
 
-" Include a large command history
-set history=1000
-
 " Don't show swap alert, default value is filnxtToO
 set shortmess=filnxtToOA
 
@@ -243,13 +222,6 @@ endif
 
 " Statusline
 if has("statusline") && !&cp
-  set laststatus=2  " always show the status bar
-
-  " Without setting this, ZoomWin restores windows in a way that causes
-  " equalalways behavior to be triggered the next time CommandT is used.
-  " This is likely a bludgeon to solve some other issue, but it works
-  set noequalalways
-
   " Start the status line
   set statusline=%f\ %m\ %r
 
@@ -283,8 +255,6 @@ endif
 " Configure indent guides (toggle with ,ig)
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
-
-map <leader>zw :ZoomWin<CR>
 
 map <Leader>rt :TagbarToggle<CR>
 
@@ -325,12 +295,6 @@ nnoremap <Right> :bnext<CR>
 nnoremap <Up> :buffers<CR>:buffer<SPACE>
 nnoremap <Down> <C-^>
 
-"nmap <silent> <c-k> :wincmd k<CR>
-"#nmap <silent> <c-j> :wincmd j<CR>
-"nmap <silent> <c-h> :wincmd h<CR>
-"nmap <silent> <c-l> :wincmd l<CR>
-
-set ttimeoutlen=50
 let g:airline_right_sep = ''
 let g:airline_left_sep = ''
 "let g:airline_linecolumn_prefix = '␊ '
