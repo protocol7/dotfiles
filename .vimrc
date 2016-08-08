@@ -31,6 +31,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'henrik/git-grep-vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'scrooloose/nerdcommenter'
 
 let g:expand_region_text_objects_clojure = {
       \ 'a)' :1,
