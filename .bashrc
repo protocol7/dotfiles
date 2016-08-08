@@ -230,8 +230,6 @@ alias sp="cd ~/src/sp"
 # MAVEN STUFF
 # -------------------------------------------------------------------
 
-export MAVEN_OPTS="-Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
-
 alias mvnee='mvn -DdownloadJavadocs=true -DdownloadSources=true eclipse:eclipse'
 alias mvndep='mvn dependency:tree'
 
