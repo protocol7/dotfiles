@@ -1,0 +1,13 @@
+#!/bin/bash
+
+startdate=$1
+enddate=$2
+
+for d in $(everyweek $startdate $enddate)
+do
+  echo -n "$d	"
+  git-checkout-date $d &> /dev/null
+  git clean -fxd &>  /dev/null
+  loc | egrep "(Objective-C )|(Java )" | head -n 1 | awk '{print $6}'
+  #git lg
+done

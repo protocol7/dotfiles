@@ -1,0 +1,11 @@
+#!/bin/bash
+
+startdate=$1
+enddate=$2
+
+curr="$startdate"
+while true; do
+    echo "$curr"
+    [ "$curr" \< "$enddate" ] || break
+    curr=$( gdate +%Y-%m-%d --date "$curr +1 day" )
+done
