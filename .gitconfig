@@ -1,6 +1,7 @@
-[user]
-  name = Niklas Gustavsson
-  useconfigonly = true
+[includeIf "gitdir:~/"]
+  path = .gitconfig-personal
+[includeIf "gitdir:~/src/sp/"]
+  path = .gitconfig-spotify
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %ci)%Creset' --abbrev-commit --date=relative
   st = status
@@ -51,11 +52,11 @@
     user = ngn
 
 [transfer]
-  fsckobjects = true
+  fsckobjects = false
 [fetch]
-  fsckobjects = true
+  fsckobjects = false
 [receive]
-  fsckObjects = true
+  fsckObjects = false
 [interactive]
 	diffFilter = diff-highlight
 [pager]
