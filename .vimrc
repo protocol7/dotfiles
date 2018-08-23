@@ -3,7 +3,7 @@ set nocompatible      " Use vim, no vi defaults. Set first as it has side
 
 filetype off    " vundle required
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 " vundle required
