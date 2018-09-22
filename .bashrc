@@ -54,6 +54,7 @@ umask 0022
 # we want the various sbins on the path along with /usr/local/bin
 PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:$PATH"
+PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
 # put ~/bin on PATH if you have it
 test -d "$HOME/bin" &&
