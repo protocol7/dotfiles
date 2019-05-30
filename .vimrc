@@ -32,6 +32,8 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'henrik/git-grep-vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'hashivim/vim-terraform'
+Bundle 'flazz/vim-colorschemes'
 
 let g:expand_region_text_objects_clojure = {
       \ 'a)' :1,
@@ -100,7 +102,7 @@ set formatoptions=tcrql         " t - autowrap to textwidth
                                 " l - don't format already long lines
 
 " Color scheme
-colorscheme vividchalk
+colorscheme molokai
 
 " Whitespace
 set nowrap                        " don't wrap lines
