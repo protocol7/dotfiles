@@ -327,6 +327,8 @@ test -r ~/dev/google-cloud-sdk/path.bash.inc &&
 test -r ~/dev/google-cloud-sdk/completion.bash.inc &&
   . ~/dev/google-cloud-sdk/completion.bash.inc
 
+# https://github.com/lf94/peek-for-tmux/blob/master/README.md
+peek() { tmux split-window -p 33 "$EDITOR" "$@" || exit; }
 
 # always end happy
 true
