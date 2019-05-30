@@ -144,7 +144,7 @@ if [ "$UNAMEX" = "Darwin" ]; then
     }
 
     # setup java environment
-    JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+    JAVA_HOME=$(/usr/libexec/java_home -v 11)
     export JAVA_HOME
 fi
 
