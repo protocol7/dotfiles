@@ -53,8 +53,7 @@ umask 0022
 
 # we want the various sbins on the path along with /usr/local/bin
 PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
-PATH="/usr/local/bin:$PATH"
-PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+#PATH="$(brew --prefix)/bin:$PATH"
 
 # put ~/bin on PATH if you have it
 test -d "$HOME/bin" &&
@@ -142,50 +141,16 @@ if [ "$UNAMEX" = "Darwin" ]; then
         PATH="/usr/pkg/sbin:/usr/pkg/bin:$PATH"
         MANPATH="/usr/pkg/share/man:$MANPATH"
     }
-
-    # setup java environment
-    JAVA_HOME=$(/usr/libexec/java_home -v 11)
-    export JAVA_HOME
 fi
-
 
 # ----------------------------------------------------------------------
 # BASH COMPLETION
 # ----------------------------------------------------------------------
 
-test -z "$BASH_COMPLETION" && {
-    bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
-    test -n "$PS1" && test $bmajor -gt 1 && {
-        # search for a bash_completion file to source
-        for f in /usr/local/etc/bash_completion \
-                 /usr/pkg/etc/bash_completion \
-                 /opt/local/etc/bash_completion \
-                 /etc/bash_completion
-        do
-            test -f $f && {
-                  . $f
-                break
-            }
-        done
-    }
-    unset bash bmajor bminor
-}
-
-# for OS X
-test -r /usr/local/etc/bash_completion.d/git-completion.bash &&
-      . /usr/local/etc/bash_completion.d/git-completion.bash
-test -r /usr/local/etc/bash_completion.d/git-prompt.sh &&
-      . /usr/local/etc/bash_completion.d/git-prompt.sh
-
-# todo.txt
-test -r /usr/local/etc/bash_completion.d/todo_completion && {
-  . /usr/local/etc/bash_completion.d/todo_completion
-  alias t="todo.sh"
-  alias tls="todo.sh ls"
-  alias tadd="todo.sh add"
-  alias tdo="todo.sh do"
-  complete -F _todo t
-}
+for COMPLETION in "$(brew --prefix)/etc/bash_completion.d/"*
+do
+  [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+done
 
 # ----------------------------------------------------------------------
 # LS AND DIRCOLORS
@@ -227,20 +192,8 @@ alias ...="cd ../.."
 alias notes="cd ~/Documents/notes"
 
 # -------------------------------------------------------------------
-# MAVEN STUFF
-# -------------------------------------------------------------------
-
-alias mvnee='mvn -DdownloadJavadocs=true -DdownloadSources=true eclipse:eclipse'
-alias mvndep='mvn dependency:tree'
-
-function mvnver() { mvn versions:set -DnewVersion=$1 -DgenerateBackupPoms=false ;}
-
-# -------------------------------------------------------------------
 # USER SHELL ENVIRONMENT
 # -------------------------------------------------------------------
-
-# http://jessenoller.com/2011/07/30/quick-pythondeveloper-tips-for-osx-lion/
-export ARCHFLAGS="-arch x86_64"
 
 # set up prompt
 test -r ~/.shorten-path.bash &&
@@ -274,26 +227,15 @@ myprompt()
     SHORT_PATH=${PWD}
   fi
 
+
   # show git branch if function exists, but not if we're in the dotfiles repo ($HOME)
   if [ "$(type -t __git_ps1)" = "function" -a "$(git rev-parse --show-toplevel 2>/dev/null)" != "$HOME" ]; then
-    #export GIT_PS1_SHOWDIRTYSTATE=true
-    #export GIT_PS1_SHOWUPSTREAM="auto"
-
     GIT_BRANCH=$(__git_ps1 "(%s")
   fi
-  echo "$HOSTPS1$SHORT_PATH$GIT_BRANCH $HAPPY "
+  echo "${HOSTPS1}${SHORT_PATH}${GIT_BRANCH} ${HAPPY} "
 }
 
-if command_exists hostname && $(hostname | egrep "(ash|sto|lon|sjc)[1-9]?.spotify.net$" | grep -vq "int.sto.spotify.net");
-then
-  PS1='\[\e[1;31m\]$(myprompt)\[\e[0m\]'
-else
-  PS1='$(myprompt)'
-fi
-
-# sometimes you have to
-test -r ~/.svn_completion.bash &&
-      . ~/.svn_completion.bash
+PS1='$(myprompt)'
 
 # use vi editing in bash
 set -o vi
@@ -306,29 +248,15 @@ alias grep='grep --color=auto'
 # update bash history after each command
 PROMPT_COMMAND="history -a"
 
-alias splog='tail -qf /var/log/syslog /spotify/log/all.log /var/log/nginx/access.log /var/log/cassandra/system.log'
-
-alias cget="curl -vso /dev/null"
-
 function mkd {
   mkdir $1 && cd $1
 }
 
-# source ~/.shenv now if it exists
-test -r ~/.shenv &&
-      . ~/.shenv
+# asdf
+. $(brew --prefix asdf)/libexec/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.bash
 
-PERL_MB_OPT="--install_base \"/Users/niklas/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/niklas/perl5"; export PERL_MM_OPT;
-
-# GCP
-test -r ~/dev/google-cloud-sdk/path.bash.inc &&
-  . ~/dev/google-cloud-sdk/path.bash.inc
-test -r ~/dev/google-cloud-sdk/completion.bash.inc &&
-  . ~/dev/google-cloud-sdk/completion.bash.inc
-
-# https://github.com/lf94/peek-for-tmux/blob/master/README.md
-peek() { tmux split-window -p 33 "$EDITOR" "$@" || exit; }
+eval "$(/opt/homebrew/bin/brew shellenv xx)"
 
 # always end happy
 true
