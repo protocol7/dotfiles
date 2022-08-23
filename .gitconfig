@@ -63,6 +63,12 @@
 	diff = diff-highlight | less
 	show = diff-highlight | less
 	log = diff-highlight | less
+[gpg]
+  format = ssh
 [user]
-	email = niklas@protocol.com
-	name = Niklas Gustavsson
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICxrgMDk3csHdsQfMYex9AUIM7LqTybRnSKBomHAIlfo
+[gpg "ssh"]
+  allowedSignersFile = /Users/ngn/.config/git/allowed_signers
+  program = /Users/ngn/bin/1password-ssh-keygen
+[commit]
+  gpgsign = true
