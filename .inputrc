@@ -1,5 +1,5 @@
 # do not bell on tab-completion
-set bell-style bell
+set bell-style none
 
 set expand-tilde off
 set horizontal-scroll-mode off

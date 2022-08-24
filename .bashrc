@@ -52,8 +52,7 @@ umask 0022
 # ----------------------------------------------------------------------
 
 # we want the various sbins on the path along with /usr/local/bin
-PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
-#PATH="$(brew --prefix)/bin:$PATH"
+PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin:/opt/homebrew/bin/"
 
 # put ~/bin on PATH if you have it
 test -d "$HOME/bin" &&
@@ -248,6 +247,8 @@ alias grep='grep --color=auto'
 # update bash history after each command
 PROMPT_COMMAND="history -a"
 
+alias c="code ."
+
 function mkd {
   mkdir $1 && cd $1
 }
@@ -257,6 +258,10 @@ function mkd {
 . ~/.asdf/plugins/java/set-java-home.bash
 
 eval "$(/opt/homebrew/bin/brew shellenv xx)"
+
+export MCFLY_DISABLE_MENU=TRUE
+export MCFLY_INTERFACE_VIEW=BOTTOM
+eval "$(mcfly init bash)"
 
 # always end happy
 true
